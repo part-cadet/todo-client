@@ -1,29 +1,29 @@
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 
 export class App {
   configureRouter(config, router) {
     config.title = 'Aurelia';
     config.map([
       {
-        route: ['', 'welcome'],
-        name: 'welcome',
-        moduleId: PLATFORM.moduleName('./welcome'),
+        route: ['', 'dashboard'],
+        name: 'dashboard',
+        moduleId: PLATFORM.moduleName('./dashboard'),
         nav: true,
-        title: 'Welcome'
+        title: 'Dashboard'
       },
       {
-        route: 'users',
-        name: 'users',
-        moduleId: PLATFORM.moduleName('./users'),
+        route: 'boards',
+        name: 'boards',
+        moduleId: PLATFORM.moduleName('./boards'),
         nav: true,
-        title: 'Github Users'
+        title: 'Boards'
       },
       {
-        route: 'child-router',
-        name: 'child-router',
-        moduleId: PLATFORM.moduleName('./child-router'),
+        route: 'todos',
+        name: 'todos',
+        moduleId: PLATFORM.moduleName('./todos'),
         nav: true,
-        title: 'Child Router'
+        title: 'Todos'
       }
     ]);
 
