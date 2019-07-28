@@ -5,7 +5,7 @@ export class App {
     config.title = 'Todo Web App';
     config.map([
       {
-        route: ['', 'dashboard'],
+        route: 'dashboard'  ,
         name: 'dashboard',
         moduleId: PLATFORM.moduleName('./dashboard'),
         nav: true,
@@ -16,7 +16,8 @@ export class App {
         name: 'boards',
         moduleId: PLATFORM.moduleName('./boards'),
         nav: true,
-        title: 'Boards'
+        title: 'Boards',
+        nav: true 
       },
       {
         route: 'todos',
@@ -28,5 +29,6 @@ export class App {
     ]);
 
     this.router = router;
+    config.fallbackRoute('dashboard');
   }
 }
