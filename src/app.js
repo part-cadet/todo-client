@@ -2,7 +2,7 @@ import { PLATFORM } from 'aurelia-pal';
 
 export class App {
   configureRouter(config, router) {
-    config.title = 'Aurelia';
+    config.title = 'Todo Web App';
     config.map([
       {
         route: ['', 'dashboard'],
