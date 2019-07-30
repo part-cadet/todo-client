@@ -13,6 +13,59 @@ $primaryColor: cadetblue;
 		padding-top: 10px;
 		padding-bottom: 1%;
 
+
+
+		info-board {
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 3% 0% 2% 0%;
+			margin: 10px;
+			height: 400px;
+			// width: 17%;
+			min-width: 270px;
+			border-radius: 5px;
+			background-color: white;
+
+			.name {
+				align-self: center;
+				font-size: 35px;
+			}
+
+
+			.status {
+				align-self: center;
+				min-height: 20%;
+				font-size: 30px;
+				margin-top: 15%;
+				color: $primaryColor;
+			}
+
+			ul {
+				align-self: center;
+				font-size: 12px;
+				padding: 0px;
+			}
+
+			.members {
+				display: flex;
+				align-items: center;
+				flex-direction: row-reverse;
+				margin-right: 20px;
+				margin-left: 20px;
+				border-radius: 20px;
+
+				img {
+					border-radius: 50%;
+					height: 40px;
+					width: 40px;
+					margin-left: -20px;
+				}
+			}
+		}
+
+
 		.board {
 			box-sizing: border-box;
 			display: flex;
