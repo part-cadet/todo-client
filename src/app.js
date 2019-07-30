@@ -13,21 +13,21 @@ export class App {
       {
         route: ['', 'dashboard' ],
         name: 'dashboard',
-        moduleId: PLATFORM.moduleName('./dashboard'),
+        moduleId: PLATFORM.moduleName('./components/dashboard/dashboard'),
         nav: true,
         title: 'Dashboard'
       },
       {
         route: 'boards',
         name: 'boards',
-        moduleId: PLATFORM.moduleName('./boards'),
+        moduleId: PLATFORM.moduleName('./components/boards/boards'),
         nav: true,
         title: 'Boards'
       },
       {
         route: 'todos',
         name: 'todos',
-        moduleId: PLATFORM.moduleName('./todos'),
+        moduleId: PLATFORM.moduleName('./components/todos/todos'),
         nav: true,
         title: 'Todos'
       }
