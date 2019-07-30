@@ -6,14 +6,12 @@ export class App {
 
     const handleUnknownRoutes = (instruction) => {
       return { route: 'not-found', moduleId: PLATFORM.moduleName('./not-found') };
-  }
-
-  config.mapUnknownRoutes(handleUnknownRoutes);
-
+    };
+    config.mapUnknownRoutes(handleUnknownRoutes);
 
     config.map([
       {
-        route: ['', 'dashboard' ] ,
+        route: ['', 'dashboard' ],
         name: 'dashboard',
         moduleId: PLATFORM.moduleName('./dashboard'),
         nav: true,
@@ -24,8 +22,7 @@ export class App {
         name: 'boards',
         moduleId: PLATFORM.moduleName('./boards'),
         nav: true,
-        title: 'Boards',
-        nav: true 
+        title: 'Boards'
       },
       {
         route: 'todos',
@@ -37,7 +34,10 @@ export class App {
     ]);
 
     this.router = router;
-    //config.mapUnknownRoutes('not-found');
-    config.fallbackRoute('dashboard');
+    config.fallbackRoute('');
+  }
+
+  clickHandler(hrefFromView) {
+    window.location.href = hrefFromView;
   }
 }
