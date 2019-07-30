@@ -28,6 +28,11 @@ $primaryColor: cadetblue;
 			border-radius: 5px;
 			background-color: white;
 
+      &:hover {
+        box-shadow: 0 10px 20px rgba(3, 27, 78, .1);
+        transition: all 0.2s;
+      }
+
 			.name {
 				align-self: center;
 				font-size: 35px;
@@ -63,7 +68,8 @@ $primaryColor: cadetblue;
 					margin-left: -20px;
 				}
 			}
-		}
+    }
+    
 
 
 		.board {
@@ -140,6 +146,7 @@ $primaryColor: cadetblue;
 	.board:hover {
 		box-shadow: 0 10px 20px rgba(3, 27, 78, .1);
 		transition: all 0.2s;
-	}
+  }
+  
 
 }
