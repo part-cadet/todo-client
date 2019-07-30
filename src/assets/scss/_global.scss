@@ -133,10 +133,10 @@ html, body {
 /* Style the tab */
 
 .tab {
-    display: flex;
-    overflow: hidden;
-    border-bottom: 1px solid #ccc;
-    //background-color: transparent;
+  display: flex;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  //background-color: transparent;
 	box-shadow: 0 5px 20px rgba(3, 27, 78, .1);
 }
 
@@ -158,6 +158,11 @@ html, body {
         padding: 14px 16px;
         transition: 0.3s;
         font-size: 17px;
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
     }
 }
 
