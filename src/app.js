@@ -3,9 +3,17 @@ import { PLATFORM } from 'aurelia-pal';
 export class App {
   configureRouter(config, router) {
     config.title = 'Todo Web App';
+
+    const handleUnknownRoutes = (instruction) => {
+      return { route: 'not-found', moduleId: PLATFORM.moduleName('./not-found') };
+  }
+
+  config.mapUnknownRoutes(handleUnknownRoutes);
+
+
     config.map([
       {
-        route: 'dashboard'  ,
+        route: ['', 'dashboard' ] ,
         name: 'dashboard',
         moduleId: PLATFORM.moduleName('./dashboard'),
         nav: true,
@@ -29,6 +37,7 @@ export class App {
     ]);
 
     this.router = router;
+    //config.mapUnknownRoutes('not-found');
     config.fallbackRoute('dashboard');
   }
 }
