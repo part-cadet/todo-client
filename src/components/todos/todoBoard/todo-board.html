@@ -1,16 +1,22 @@
-
 <template>
-    <require from="./task/task"></require>
-<div class="todoBox">
-  <div class="title">
-    <p>${todoboard123.title}</p>
-  </div>
-  <div class="allTasksContainer">
-    <task repeat.for="task of tasks" task.bind="task"></task>
-  
-    
-   
-  </div>
+  <require from="../taskInput/task-input"></require>
+  <require from="../task/task"></require>
 
-</div>
+  <div class="todoBox">
+    <div class="title">
+      <p>${todoboard.title}</p>
+    </div>
+    <div class="allTasksContainer">
+      <div class="inputContainer">
+        <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
+          onblur="this.placeholder='Enter task her'" value.bind="newTaskDesc">
+        <input type="submit" value="+" click.delegate="addTask()">
+      </div>
+
+      <hr>
+      
+      <task repeat.for="task of tasks" task.bind="task"></task>
+    </div>
+
+  </div>
 </template>
