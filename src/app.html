@@ -3,8 +3,8 @@
   
   <div class="bg">
       <div class="tab">
-          <button repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-            <a href.bind="row.href">${row.title}</a>
+          <button repeat.for="row of router.navigation" click.delegate="clickHandler(row.href)" class="${row.isActive ? 'active' : ''}">
+            ${row.title}
           </button>
       </ul>
     </div>
