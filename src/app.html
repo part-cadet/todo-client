@@ -1,6 +1,6 @@
 <template>
   <require from='./assets/scss/style.scss'></require>
-  
+
   <div class="bg">
       <div class="tab">
           <button repeat.for="row of router.navigation" click.delegate="clickHandler(row.href)" class="${row.isActive ? 'active' : ''}">
@@ -8,8 +8,9 @@
           </button>
       </ul>
     </div>
-        
-    <router-view></router-view>
 
-  
+
+    <router-view></router-view>
+  </div>
+
 </template>
