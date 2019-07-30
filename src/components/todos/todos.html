@@ -1,20 +1,5 @@
 <template>
-<!-- 
-    <div class="bg">
-      <div class="tab">
-        <button class="tablinks" onclick="window.location.href='#/dashboard'">Dashboard</button>
-        <button class="tablinks" onclick="window.location.href='#/boards'"> Boards</button>
-        <button class="tablinks active">Todos</button>
-      </div> -->
-
-      <!-- <div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div> -->
-      <!-- <div id="T" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div> -->
+  <require from="./todoBoard/todo-board"></require>
 
       <div id="Todos" class="tabcontent">
         <div id="organizer" class="organizer">
@@ -38,162 +23,21 @@
             </div>
             <div id="boardBoxTodo" class="boardBoxTodo">
 
-
-              <div class="todoBox done">
-                <div class="title">
-                  <p>To do one</p>
-                </div>
-                <div class="allTasksContainer">
-                  <div class="inputContainer">
-
-                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter task her'">
-
-
-
-                    <input type="submit" value="+">
-                  </div>
-                  <hr>
-
-
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
-                      <label for="styled-checkbox-1">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-3" type="checkbox" value="value1">
-                      <label for="styled-checkbox-3">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-4" type="checkbox" value="value1">
-                      <label for="styled-checkbox-4">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-5" type="checkbox" value="value1">
-                      <label for="styled-checkbox-5">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value1">
-                      <label for="styled-checkbox-2">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar2.png" alt="img_avatar2">
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-
-              </div>
-
-              <div class="todoBox">
-                <div class="title">To do one</div>
-                <div class="allTasksContainer">
-                  <div class="inputContainer">
-
-                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter task her'">
-
-
-
-                    <input type="submit" value="+">
-                  </div>
-                  <hr>
-
-
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-11" type="checkbox" value="value1">
-                      <label for="styled-checkbox-11">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-12" type="checkbox" value="value1">
-                      <label for="styled-checkbox-12">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-13" type="checkbox" value="value1">
-                      <label for="styled-checkbox-13">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-14" type="checkbox" value="value1">
-                      <label for="styled-checkbox-14">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-15" type="checkbox" value="value1">
-                      <label for="styled-checkbox-15">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar2.png" alt="img_avatar2">
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-
-              </div>
-
+              <todo-board repeat.for="board of todoBoards" todoboard.bind="board"></todo-board>
 
               <div class="todoBox">
                 <div class="title">
                   <p>Todo 2</p>
                 </div>
                 <div class="allTasksContainer">
+
                   <div class="inputContainer">
 
-                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter task her'">
-
-
-
+                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''" onblur="this.placeholder='Enter task her'">
                     <input type="submit" value="+">
+
                   </div>
+                  
                   <hr>
 
 
@@ -241,48 +85,6 @@
                     <div class="taskItem">
                       <input class="styled-checkbox" id="styled-checkbox-15" type="checkbox" value="value1">
                       <label for="styled-checkbox-15">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar2.png" alt="img_avatar2">
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-
-              </div>
-              <div class="todoBox">
-                <div class="title">
-                  <p>To do one</p>
-                </div>
-                <div class="allTasksContainer">
-
-                  <div class="inputContainer">
-
-                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter task her'">
-
-
-
-                    <input type="submit" value="+">
-                  </div>
-                  <hr>
-
-
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-7" type="checkbox" value="value1">
-                      <label for="styled-checkbox-7">hi</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-8" type="checkbox" value="value1">
-                      <label for="styled-checkbox-8">Checkbox</label>
                     </div>
                     <div class="taskItem">
                       <img src="../../assets/pictures/img_avatar2.png" alt="img_avatar2">
@@ -293,6 +95,8 @@
 
               </div>
               
+
+           
               <a href="#" class="todoBox plus">
                 <p>+</p>
               </a>
