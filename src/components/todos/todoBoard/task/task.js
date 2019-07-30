@@ -1,5 +1,10 @@
+import {
+  bindable
+} from 'aurelia-framework';
+
 export class Task {
+  @bindable task
   constructor() {
-    this.message = 'Hello world';
+
   }
 }
