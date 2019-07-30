@@ -5,6 +5,8 @@ import {
 export class Task {
   @bindable task
   constructor() {
+    
+    
 
   }
 }

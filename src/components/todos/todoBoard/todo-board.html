@@ -1,11 +1,12 @@
 
 <template>
+    <require from="./task/task"></require>
 <div class="todoBox">
   <div class="title">
-    <p>${todoboard.title}</p>
+    <p>${todoboard123.title}</p>
   </div>
   <div class="allTasksContainer">
-
+    <task repeat.for="task of tasks" task.bind="task"></task>
   
     
    
