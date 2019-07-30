@@ -1,21 +1,5 @@
 <template>
   <require from="./todoBoard/todo-board"></require>
-<!-- 
-    <div class="bg">
-      <div class="tab">
-        <button class="tablinks" onclick="window.location.href='#/dashboard'">Dashboard</button>
-        <button class="tablinks" onclick="window.location.href='#/boards'"> Boards</button>
-        <button class="tablinks active">Todos</button>
-      </div> -->
-
-      <!-- <div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div> -->
-      <!-- <div id="T" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div> -->
 
       <div id="Todos" class="tabcontent">
         <div id="organizer" class="organizer">
@@ -38,21 +22,22 @@
               </div>
             </div>
             <div id="boardBoxTodo" class="boardBoxTodo">
-              <todo-board repeat.for="board of todoBoards" todoboard123.bind="board"></todo-board>
+
+              <todo-board repeat.for="board of todoBoards" todoboard.bind="board"></todo-board>
+
               <div class="todoBox">
                 <div class="title">
                   <p>Todo 2</p>
                 </div>
                 <div class="allTasksContainer">
+
                   <div class="inputContainer">
 
-                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter task her'">
-
-
-
+                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''" onblur="this.placeholder='Enter task her'">
                     <input type="submit" value="+">
+
                   </div>
+                  
                   <hr>
 
 
