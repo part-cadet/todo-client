@@ -1,4 +1,5 @@
 <template>
+  <require from="./todoBoard/todo-board"></require>
 <!-- 
     <div class="bg">
       <div class="tab">
@@ -37,6 +38,9 @@
               </div>
             </div>
             <div id="boardBoxTodo" class="boardBoxTodo">
+              <todo-board repeat.for="board of todoBoards" todoboard.bind="board"></todo-board>
+
+              
 
 
               <div class="todoBox done">
@@ -292,6 +296,9 @@
                 </div>
 
               </div>
+
+
+              
               
               <a href="#" class="todoBox plus">
                 <p>+</p>
