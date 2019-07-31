@@ -25,6 +25,8 @@ $primaryColor: cadetblue;
             box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.315);
         }
 
+       
+
 
         .boards {
             display: flex;
@@ -51,6 +53,8 @@ $primaryColor: cadetblue;
                 min-width: 300px;;
             }
 
+           
+
 
 
             .boardsOwnerAndName {
@@ -74,6 +78,53 @@ $primaryColor: cadetblue;
                     // align-items: center;
                     // align-content: center;
                     // align-self: center;
+                }
+
+                .newBoard{
+                  display: flex;
+                  flex-direction: column;
+                 justify-content:flex-start;
+                 align-self:flex-start;
+                //  flex-grow: 1;
+                  // align-items: center;
+                  // height:220px;
+
+                  input{
+                    display: flex;
+                    justify-content:center;
+                    align-items: center;
+                    width: 380px;
+                    height: 33px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    padding-left: 10px;
+                    border-color: $primaryColor;
+                    border-radius: 5px;
+                    border:solid;
+                    border-width: 1px; 
+                    // border:none;
+                    font-size: 15px;
+                    
+                    
+                  }
+
+                  button{
+                    display: flex;
+                    justify-content:center;
+                    align-items: center;
+                    width: 390px;
+                    height: 30px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    border-radius: 5px;
+                    background-color: $primaryColor;
+                    border: none;
+                    color: white;
+                    font-size: 15px;
+                    cursor: pointer;
+
+
+                  }
                 }
 
                 .numberOfBoard {
@@ -154,6 +205,9 @@ $primaryColor: cadetblue;
                     }
 
                 }
+
+
+                
 
 
 
