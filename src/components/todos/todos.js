@@ -1,8 +1,14 @@
-
-import { TodoBoard } from '../../models/todos/todo-board-model';
+import {
+  TodoBoard
+} from '../../models/todos/todo-board-model';
 
 export class Todos {
+  newTodoTitle
+
+
+  show = true;
   constructor() {
+    this.newTodoTitle = '';
     this.todoBoards = [];
     this.todoBoards.push(new TodoBoard('hi'));
     this.todoBoards.push(new TodoBoard('hello'));
@@ -10,6 +16,16 @@ export class Todos {
   }
 
   addTodo() {
-    this.todoBoards.push(new TodoBoard('New Todo'));
+
+
+    if (this.newTodoTitle !== '') {
+      this.todoBoards.push(new TodoBoard(this.newTodoTitle));
+      this.newTodoTitle = '';
+    }
+    this.show = !this.show;
+  }
+  toggle() {
+    this.show = !this.show;
+    // console.log("show");
   }
 }
