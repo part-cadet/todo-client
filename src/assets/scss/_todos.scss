@@ -41,6 +41,9 @@ $primaryColor: cadetblue;
 
 
     .boardBoxTodo {
+      button{
+        border:0px solid red;
+      }
       box-sizing: border-box;
 
       display: flex;
@@ -64,6 +67,7 @@ $primaryColor: cadetblue;
 
 
       .todoBox {
+       
 
         box-sizing: border-box;
 

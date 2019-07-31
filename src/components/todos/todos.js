@@ -1,7 +1,11 @@
-
-import { TodoBoard } from '../../models/todos/todo-board-model';
+import {
+  TodoBoard
+} from '../../models/todos/todo-board-model';
 
 export class Todos {
+
+
+  show = true;
   constructor() {
     this.todoBoards = [];
     this.todoBoards.push(new TodoBoard('hi'));
@@ -11,5 +15,10 @@ export class Todos {
 
   addTodo() {
     this.todoBoards.push(new TodoBoard('New Todo'));
+  }
+  toggle() {
+    this.show = !this.show;
+    console.log("show");
+    
   }
 }

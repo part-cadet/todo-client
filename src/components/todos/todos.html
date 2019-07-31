@@ -27,9 +27,19 @@
 
 
            
-              <button class="todoBox plus" click.delegate="addTodo()">
+              <!-- <button class="todoBox plus" click.delegate="addTodo()">
+                 
                 <p>+</p>
-              </button>
+              </button> -->
+
+              
+              <!-- <button  click.delegate='showCard = !showCard'>Show the card</button>
+              <button if.bind='showCard'>hi<button> -->
+
+                  <button class="todoBox plus" if.bind="show" click.delegate='toggle()'><p>1</p></button>
+                  <button class="todoBox" if.bind="!show" click.delegate='toggle()'><p>2</p></button>
+
+
 
           </div>
         </div>
