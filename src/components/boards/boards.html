@@ -9,7 +9,41 @@
 
            <board repeat.for="board of boards" board.bind="board"></board>
         
-            <button class="finalButton" click.delegate="addBoard()">+</button>
+            <button class="finalButton" if.bind="show" click.delegate="toggle()">+</button>
+            <div class="boards" if.bind="!show" >
+                    <div class="boardsOwnerAndName ">
+                        <div class="newBoard">
+
+                            <input type="text" name="board" placeholder="Enter board name here" onfocus="this.placeholder=''"
+                            onblur="this.placeholder='Enter board name here'" value.bind="newBoardTitle">
+                           
+                            <input type="text" name="board" placeholder="Enter board owner here" onfocus="this.placeholder=''"
+                            onblur="this.placeholder='Enter board owner here'" value.bind="newBoardOwner">
+            
+                             <button click.delegate="addBoard()">submit</button>
+                          </div>
+                      
+                    </div>
+                
+                
+                    <div class="innerBoard">
+                      <div class="membersOfBoard">
+                        <div class="headOfMember">Members</div>
+                      </div>
+              
+                
+                
+                    </div>
+                
+                 
+              
+              
+              
+
+           
+          
+          
+            </div>
 
           </div>
         </div>
