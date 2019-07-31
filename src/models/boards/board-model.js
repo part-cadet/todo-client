@@ -2,14 +2,32 @@
 export class Board {
   owner;
   title;
-  members=[];
+  members = [];
+  showInput;
+  newMember='';
   constructor(title, owner, members) {
     this.title = title;
     this.owner = owner;
     this.members = members;
+    this.newMember = '';
   }
 
   addMember() {
-    this.members.push('New Member');
+    if (this.newMember !== '') {
+      this.members.push(this.newMember);
+      this.newMember = '';
+    }
+    // this.members.push('New Member');
+    this.showInput = !this.showInput;
+    // this.showInput = !showInput;
+  }
+
+  showing() {
+    // if (this.newMember !== '') {
+    //   this.members.push(newMember);
+    // }
+
+    this.showInput = !this.showInput;
+    // this.showInput = !showInput;
   }
 }
