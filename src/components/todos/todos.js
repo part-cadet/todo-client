@@ -1,5 +1,10 @@
+import { TodoBoard } from '../../models/todos/todo-board-model';
+
 export class Todos {
   constructor() {
-    this.message = 'Hello world';
+    this.todoBoards = [];
+    this.todoBoards.push(new TodoBoard('hi'));
+    this.todoBoards.push(new TodoBoard('hello'));
+    this.todoBoards.push(new TodoBoard('hello'));
   }
 }
