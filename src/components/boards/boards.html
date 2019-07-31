@@ -1,96 +1,14 @@
 <template>
+  <require from="./board/board"></require>
 
     <div class="bg">
-      <!-- <div class="tab">
-        <button class="tablinks" onclick="window.location.href='#/dashboard'">Dashboard</button>
-        <button class="tablinks active">Boards</button>
-        <button class="tablinks" onclick="window.location.href='#/todos'">Todos</button>
-      </div> -->
-
-      <!-- <div id="London" class="tabcontent">
-      <h3>London</h3>
-      <p>London is the capital city of England.</p>
-    </div> -->
       <div id="Boards" class="tabcontent">
         <div class="boardsOrganizer">
           <div class="boardBox2">
-            <div class="boards">
-              <div class="boardsOwnerAndName ">
-                <div class="numberOfBoard">Board1</div>
-                <div class="listOwner">
-                  <h6>Owner</h6>
-                  <ul>
-                    <li>Nafiseh Nikeghbal</li>
-                  </ul>
-                </div>
-              </div>
 
 
-              <div class="innerBoard">
-                <div class="membersOfBoard">
-                  <div class="headOfMember">Members</div>
-                  <ul>
-                    <li>Nafise Nikeghbal</li>
-                    <li>Faezeh Shayesteh</li>
-                    <li>Ali Goldani</li>
-                    <li>Nafise Nikeghbal</li>
-                    <li>Faezeh Shayesteh</li>
-                    <li>Ali Goldani</li>
-                    <li>Faezeh Shayesteh</li>
-                    <li>Nafise Nikeghbal</li>
-                    <li>Nafise Nikeghbal</li>
-                    <li>Nafise Nikeghbal</li>
-
-                  </ul>
-                </div>
-
-
-                <button class="circleButton">
-                  <div>+</div>
-                </button>
-
-
-              </div>
-
-            </div>
-
-
-
-
-            <div class="boards">
-              <div class="boardsOwnerAndName ">
-                <div class="numberOfBoard">Board2</div>
-                <div class="listOwner">
-                  <h6>Owner</h6>
-                  <ul>
-                    <li>Faezeh</li>
-                  </ul>
-                </div>
-              </div>
-
-
-              <div class="innerBoard">
-                <div class="membersOfBoard">
-                  <div class="headOfMember">Members</div>
-                  <ul>
-                    <li>Nafise Nikeghbal</li>
-                    <li>Faezeh Shayesteh</li>
-                    <li>Nafise Nikeghbal</li>
-                    <li>Faezeh Shayesteh</li>
-                  </ul>
-                </div>
-
-
-                <button class="circleButton">
-                  <div>+</div>
-                </button>
-
-
-              </div>
-
-            </div>
-
-
+           <board repeat.for="board456 of boards" board123.bind="board456"></board>
+        
             <button class="finalButton">+</button>
 
           </div>
