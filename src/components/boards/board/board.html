@@ -20,9 +20,18 @@
         </ul>
       </div>
 
-      <button class="circleButton" click.delegate="board.addMember()">
+      <div class="addInput">
+      <button if.bind="!board.showInput"  class="circleButton" click.delegate="board.showing()" >
         <div>+</div>
       </button>
+      <input if.bind="board.showInput" type="text" name="member" placeholder="Enter member here" onfocus="this.placeholder=''"
+       onblur="this.placeholder='Enter member here'" value.bind="board.newMember"
+      >
+      <button if.bind="board.showInput" class="submitButton" click.delegate="board.addMember()" >
+          <div>submit</div>
+        </button>
+    
+    </div>
 
 
     </div>
