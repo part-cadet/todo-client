@@ -9,7 +9,7 @@
 
             <div id="todosInfo" class="todosInfo">
               <div class="text">
-                <p>Total of 2 boards</p>
+                <p>Total of ${todoBoards.length} boards</p>
               </div>
 
               <div class="dropdown">
@@ -23,83 +23,13 @@
             </div>
             <div id="boardBoxTodo" class="boardBoxTodo">
 
-              <todo-board repeat.for="board of todoBoards" todoboard.bind="board"></todo-board>
+              <todo-board repeat.for="todoboard of todoBoards" todoboard.bind="todoboard"></todo-board>
 
-              <div class="todoBox">
-                <div class="title">
-                  <p>Todo 2</p>
-                </div>
-                <div class="allTasksContainer">
-
-                  <div class="inputContainer">
-
-                    <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''" onblur="this.placeholder='Enter task her'">
-                    <input type="submit" value="+">
-
-                  </div>
-                  
-                  <hr>
-
-
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-11" type="checkbox" value="value1">
-                      <label for="styled-checkbox-11">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-12" type="checkbox" value="value1">
-                      <label for="styled-checkbox-12">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-13" type="checkbox" value="value1">
-                      <label for="styled-checkbox-13">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-14" type="checkbox" value="value1">
-                      <label for="styled-checkbox-14">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar.png" alt="img_avatar1">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="taskContainer">
-                    <div class="taskItem">
-                      <input class="styled-checkbox" id="styled-checkbox-15" type="checkbox" value="value1">
-                      <label for="styled-checkbox-15">Checkbox</label>
-                    </div>
-                    <div class="taskItem">
-                      <img src="../../assets/pictures/img_avatar2.png" alt="img_avatar2">
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-
-              </div>
-              
 
            
-              <a href="#" class="todoBox plus">
+              <button class="todoBox plus" click.delegate="addTodo()">
                 <p>+</p>
-              </a>
+              </button>
 
           </div>
         </div>

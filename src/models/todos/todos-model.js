@@ -1,9 +1,7 @@
-// import { bindable } from 'aurelia-framework';
-import { TodoBoard } from './../../models/todos/todo-board-model';
-
+import { TodoBoard } from './todo-board-model';
 
 export class Todos {
-  // @bindable todos;
+  todoBoards;
   constructor() {
     this.todoBoards = [];
     this.todoBoards.push(new TodoBoard('hi'));
@@ -12,6 +10,7 @@ export class Todos {
   }
 
   addTodo() {
+    console.log("test");
     this.todoBoards.push(new TodoBoard('New Todo'));
   }
 }
