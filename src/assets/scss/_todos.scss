@@ -275,6 +275,10 @@ $primaryColor: cadetblue;
         font-size: 40px;
         text-decoration: none;
         order: 2;
+
+        &:focus {
+          outline: none;
+        }
       }
 
 

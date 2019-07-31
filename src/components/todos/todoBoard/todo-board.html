@@ -8,13 +8,13 @@
     <div class="allTasksContainer">
       <div class="inputContainer">
         <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-          onblur="this.placeholder='Enter task her'" value.bind="newTaskDesc">
-        <input type="submit" value="+" click.delegate="addTask()">
+          onblur="this.placeholder='Enter task her'" value.bind="todoboard.newTaskDesc">
+        <input type="submit" value="+" click.delegate="todoboard.addTask()">
       </div>
 
       <hr>
       
-      <task repeat.for="task of tasks" task.bind="task"></task>
+      <task repeat.for="task of todoboard.tasks" task.bind="task"></task>
     </div>
 
   </div>
