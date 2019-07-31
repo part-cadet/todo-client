@@ -7,9 +7,9 @@
           <div class="boardBox2">
 
 
-           <board repeat.for="board456 of boards" board123.bind="board456"></board>
+           <board repeat.for="board of boards" board.bind="board"></board>
         
-            <button class="finalButton">+</button>
+            <button class="finalButton" click.delegate="addBoard()">+</button>
 
           </div>
         </div>

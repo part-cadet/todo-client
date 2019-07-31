@@ -2,11 +2,11 @@
     <!-- <require from="./member/member"></require> -->
   <div class="boards">
     <div class="boardsOwnerAndName ">
-      <div class="numberOfBoard">${board123.title}</div>
+      <div class="numberOfBoard">${board.title}</div>
       <div class="listOwner">
         <h6>Owner</h6>
         <ul>
-          <li>${board123.owner}</li>
+          <li>${board.owner}</li>
         </ul>
       </div>
     </div>
@@ -16,17 +16,11 @@
       <div class="membersOfBoard">
         <div class="headOfMember">Members</div>
         <ul>
-          <li repeat.for="member of board123.members" board123.bind="member">${member}</li> 
-          <!-- <li repeat.for="member of board123.members" board123.singleMember.bind="member"></li> -->
-          <!-- <board repeat.for="board456 of boards" board123.bind="board456"></board> -->
-          <!-- <li>Faezeh Shayesteh</li>
-          <li>Nafise Nikeghbal</li>
-          <li>Faezeh Shayesteh</li> -->
+          <li repeat.for="member of board.members" board.bind="member">${member}</li> 
         </ul>
       </div>
 
-
-      <button class="circleButton">
+      <button class="circleButton" click.delegate="board.addMember()">
         <div>+</div>
       </button>
 

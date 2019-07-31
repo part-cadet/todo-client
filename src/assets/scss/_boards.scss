@@ -249,6 +249,9 @@ $primaryColor: cadetblue;
                     bottom: 10px;
                     border-radius: 50%;
 
+                    &:focus {
+                      outline: none;
+                    }
 
                 }
             }
@@ -277,6 +280,10 @@ $primaryColor: cadetblue;
             @include breakpoint(small) {
                 
                 max-width: 300px;;
+            }
+
+            &:focus {
+              outline: none;
             }
         }
     }

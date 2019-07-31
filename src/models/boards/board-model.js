@@ -8,4 +8,8 @@ export class Board {
     this.owner = owner;
     this.members = members;
   }
+
+  addMember() {
+    this.members.push('New Member');
+  }
 }
