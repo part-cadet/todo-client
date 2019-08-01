@@ -35,7 +35,7 @@ $primaryColor: cadetblue;
         flex-grow: 1;
       }
 
-      .boardsmenu {}
+      // .boardsmenu {}
 
     }
 
@@ -322,9 +322,9 @@ $primaryColor: cadetblue;
     }
 
     // Box focus
-    &:focus+label:before {
-      // box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
-    }
+    // &:focus+label:before {
+    //   // box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    // }
 
     // Box checked
     &:checked+label:before {
