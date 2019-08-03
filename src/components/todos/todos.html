@@ -37,16 +37,16 @@
               <button if.bind='showCard'>hi<button> -->
 
                   <button class="todoBox plus" if.bind="show" click.delegate='toggle()'><p>+</p></button>
-                  <div class="todoBox" if.bind="!show" >
-                    <div class="add">
+                  <div class="todoBox plus white" if.bind="!show" >
+                   
 
-                      <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter task her'" value.bind="newTodoTitle">
+                      <input class="titleInput" type="text" name="task" placeholder="Enter todo title here" onfocus="this.placeholder=''"
+                      onblur="this.placeholder='Enter todo title here'" value.bind="newTodoTitle">
                     
 
                       
-                      <button click.delegate="addTodo()" >hi</button>
-                    </div>
+                      <button class="submitbtn" click.delegate="addTodo()" >Submit</button>
+                   
                  
                 
                 
