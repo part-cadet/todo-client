@@ -1,6 +1,7 @@
 import { PLATFORM } from 'aurelia-pal';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
+const PORT = 3000;
 
 @inject(HttpClient)
 export class App {
@@ -12,7 +13,7 @@ export class App {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('http://localhost/api/')
+        .withBaseUrl(`http://localhost:${PORT}/api/`)
         .withDefaults({
           credentials: 'same-origin',
           headers: {
