@@ -1,5 +1,7 @@
 $primaryColor: cadetblue;
 
+
+
 .organizer {
   background: transparent;
   display: flex;
@@ -41,9 +43,10 @@ $primaryColor: cadetblue;
 
 
     .boardBoxTodo {
-      button{
-        border:0px solid red;
+      button {
+        border: 0px solid red;
       }
+
       box-sizing: border-box;
 
       display: flex;
@@ -67,7 +70,7 @@ $primaryColor: cadetblue;
 
 
       .todoBox {
-       
+
 
         box-sizing: border-box;
         align-items: stretch;
@@ -105,7 +108,7 @@ $primaryColor: cadetblue;
           text-align: center;
           height: 40px;
           width: 95%;
-          
+
           border-radius: 3px;
           background-color: cadetblue;
         }
@@ -284,6 +287,41 @@ $primaryColor: cadetblue;
 
         &:focus {
           outline: none;
+        }
+      }
+
+      .white {
+
+
+        background-color: white;
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        padding:20px;
+        
+
+
+        .titleInput {
+          box-sizing: border-box;
+          width: 100%;
+          margin-bottom: 10px;
+          border: 1px solid rgb(196, 196, 196);
+          border-radius: 5px;
+          height:35px;
+          padding:10px;
+        }
+
+        .submitbtn{
+          box-sizing: border-box;
+          width:100%;
+          background-color: cadetblue;
+          border-radius: 5px;
+          height:35px;
+          color:white;
         }
       }
 
