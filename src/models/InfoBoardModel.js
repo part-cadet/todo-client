@@ -4,10 +4,10 @@ import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
 export class InfoBoardModel {
-  title;
-  todocount;
-  taskcount;
-  unfinishedtasks;
+  title = 'New Board';
+  todocount = 0;
+  taskcount = 0;
+  unfinishedtasks = 0;
   todoBoards = [];
   constructor(httpClient) {
     this.httpClient = httpClient;
