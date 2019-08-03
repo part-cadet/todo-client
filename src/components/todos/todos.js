@@ -15,9 +15,7 @@ export class Todos {
     this.httpClient.fetch('todo')
       .then(response => response.json())
       .then(data => {
-        data.result.forEach(element => {
-          this.todoBoards.push(Object.assign(new TodoBoard('temp'), element));
-        });
+        this.todoBoards = data.result.map(element => Object.assign(new TodoBoard(), element));
       });
   }
 
