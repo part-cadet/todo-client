@@ -39,15 +39,21 @@
                   <button class="todoBox plus" if.bind="show" click.delegate='toggle()'><p>+</p></button>
                   <div class="todoBox plus white" if.bind="!show" >
                    
-
+                      <form>
+                          <!-- <ul if.bind="controller.errors">
+                              <li repeat.for="error of controller.errors">
+                                  ${error.message}
+                              </li>
+                          </ul> -->
                       <input class="titleInput" type="text" name="task" placeholder="Enter todo title here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter todo title here'" value.bind="newTodoTitle">
+                      onblur="this.placeholder='Enter todo title here'" value.bind="newTodoTitle"autofocus>
+                     
                     
 
                       
-                      <button class="submitbtn" click.delegate="addTodo()" >Submit</button>
+                      <button type="submit" class="submitbtn" click.delegate="addTodo()" >Submit</button>
                    
-                 
+                    </form>
                 
                 
                   </div>

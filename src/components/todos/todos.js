@@ -2,6 +2,18 @@ import { TodoBoard } from '../../models/todos/todo-board-model';
 import { inject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 
+import { ValidationControllerFactory, ValidationRules } from 'aurelia-validation';
+
+@inject(ValidationControllerFactory)
+export class TodoPage {
+  constructor(controllerFactory) {
+    this.controller = controllerFactory.createForCurrentScope();
+    ValidationRules
+      .ensure('title').required()
+      .on(this);
+  }
+}
+
 @inject(HttpClient)
 export class Todos {
   newTodoTitle = '';

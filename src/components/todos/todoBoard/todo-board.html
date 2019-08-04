@@ -7,9 +7,11 @@
     </div>
     <div class="allTasksContainer">
       <div class="inputContainer">
+        <form>
         <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
           onblur="this.placeholder='Enter task her'" value.bind="todoboard.newTaskDesc">
         <input type="submit" value="+" click.delegate="todoboard.addTask()">
+      </form>
       </div>
 
       <hr>

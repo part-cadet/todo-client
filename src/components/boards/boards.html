@@ -13,14 +13,17 @@
             <div class="boards" if.bind="!show" >
                     <div class="boardsOwnerAndName ">
                         <div class="newBoard">
+                          <form>
 
                             <input type="text" name="board" placeholder="Enter board name here" onfocus="this.placeholder=''"
-                            onblur="this.placeholder='Enter board name here'" value.bind="newBoardTitle">
+                            onblur="this.placeholder='Enter board name here'" value.bind="newBoardTitle"autofocus>
                            
                             <input type="text" name="board" placeholder="Enter board owner here" onfocus="this.placeholder=''"
                             onblur="this.placeholder='Enter board owner here'" value.bind="newBoardOwner">
             
                              <button click.delegate="addBoard()">submit</button>
+
+                            </form>
                           </div>
                       
                     </div>

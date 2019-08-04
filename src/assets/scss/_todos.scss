@@ -166,7 +166,7 @@ $primaryColor: cadetblue;
               border-radius: 50%;
               height: 50px;
               width: 50px;
-              margin-left: -20px;
+              margin-left: 0px;
               // size: 45px 45px;
               border-radius: 50%;
               background-color: cadetblue;
@@ -291,7 +291,10 @@ $primaryColor: cadetblue;
       }
 
       .white {
-
+        position: relative;
+          ul{
+            position: absolute;
+          }
 
         background-color: white;
         flex-grow: 1;
