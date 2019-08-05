@@ -1,0 +1,14 @@
+<template>
+  <div class="form-group">
+    <new-member-area>
+        <button if.bind="!showInput" class="circleButton" click.delegate="showing()">
+            <div>+</div>
+          </button>
+          <input if.bind="showInput" type="text" name="member" placeholder="Enter member here"
+            value.bind="newMember & validate">
+          <button if.bind="showInput" class="submitButton" click.delegate="addMember()">
+            <div>submit</div>
+          </button>
+    </new-member-area>
+  </div>
+</template>

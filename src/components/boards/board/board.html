@@ -1,5 +1,7 @@
 <template>
-    <!-- <require from="./member/member"></require> -->
+  <!-- <require from="./member/member"></require> -->
+  <require from="../../custom/board-add-member-btn/add-member-btn"></require>
+
   <div class="boards">
     <div class="boardsOwnerAndName ">
       <div class="numberOfBoard">${board.title}</div>
@@ -11,29 +13,15 @@
       </div>
     </div>
 
-
     <div class="innerBoard">
       <div class="membersOfBoard">
         <div class="headOfMember">Members</div>
         <ul>
-          <li repeat.for="member of board.members" board.bind="member">${member}</li> 
+          <li repeat.for="member of board.members" board.bind="member">${member}</li>
         </ul>
       </div>
 
-      <div class="addInput">
-      <button if.bind="!board.showInput"  class="circleButton" click.delegate="board.showing()" >
-        <div>+</div>
-      </button>
-      <input if.bind="board.showInput" type="text" name="member" placeholder="Enter member here" onfocus="this.placeholder=''"
-       onblur="this.placeholder='Enter member here'" value.bind="board.newMember"
-      >
-      <button if.bind="board.showInput" class="submitButton" click.delegate="board.addMember()" >
-          <div>submit</div>
-        </button>
-    
-    </div>
-
-
+      <add-member-btn members.bind="board.members"></add-member-btn>
     </div>
 
   </div>

@@ -2,7 +2,6 @@ import {bindable, bindingMode} from 'aurelia-framework';
 import {Task} from '../../../models/todos/task-model';
 import { inject } from 'aurelia-framework';
 
-// import { validationMessages } from 'aurelia-validation';
 import { ValidationControllerFactory, ValidationRules } from 'aurelia-validation';
 import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 
