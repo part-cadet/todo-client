@@ -45,6 +45,12 @@ export class Boards {
 }
 
 ValidationRules
-  .ensure('newBoardTitle').required()
-  .ensure('newBoardOwner').required()
+  .ensure('newBoardTitle')
+  .displayName('Board title')
+  .required()
+  .withMessage('\${$displayName} can\'t be blank.')
+  .ensure('newBoardOwner')
+  .displayName('Boards owner name')
+  .required()
+  .withMessage('\${$displayName} can\'t be blank.')
   .on(Boards);
