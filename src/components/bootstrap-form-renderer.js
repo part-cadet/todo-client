@@ -1,9 +1,3 @@
-import {
-  ValidationRenderer,
-  RenderInstruction,
-  ValidateResult
-} from 'aurelia-validation';
-
 export class BootstrapFormRenderer {
   render(instruction) {
     for (let { result, elements } of instruction.unrender) {
@@ -11,7 +5,6 @@ export class BootstrapFormRenderer {
         this.remove(element, result);
       }
     }
-
     for (let { result, elements } of instruction.render) {
       for (let element of elements) {
         this.add(element, result);
@@ -23,15 +16,12 @@ export class BootstrapFormRenderer {
     if (result.valid) {
       return;
     }
-
     const formGroup = element.closest('.form-group');
     if (!formGroup) {
       return;
     }
-
     // add the has-error class to the enclosing form-group div
     formGroup.classList.add('has-error');
-
     // add help-block
     const message = document.createElement('span');
     message.className = 'help-block validation-message';
@@ -49,7 +39,6 @@ export class BootstrapFormRenderer {
     if (!formGroup) {
       return;
     }
-
     // remove help-block
     const message = formGroup.querySelector(`#validation-message-${result.id}`);
     if (message) {
@@ -62,5 +51,3 @@ export class BootstrapFormRenderer {
     }
   }
 }
-
-

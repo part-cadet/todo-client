@@ -9,6 +9,7 @@
     "valueConverters": "resources/value-converters",
     "bindingBehaviors": "resources/binding-behaviors"
   },
+  
   "transpiler": {
     "id": "babel",
     "fileExtension": ".js"
