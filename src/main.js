@@ -3,9 +3,7 @@
 import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import environment from './environment';
-import {
-  PLATFORM
-} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 
 export function configure(aurelia) {
   aurelia.use
