@@ -1,43 +1,23 @@
-import {
-  TodoBoard
-} from '../../models/todos/todo-board-model';
-import {
-  inject, NewInstance
-} from 'aurelia-framework';
-import {
-  HttpClient
-} from 'aurelia-fetch-client';
+import {TodoBoard} from '../../models/todos/todo-board-model';
+import {inject} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
 
-import {
-  validationMessages
-} from 'aurelia-validation';
-import {
-  ValidationController,
-  //   ValidationController,
-  ValidationRules
-} from 'aurelia-validation';
-import {
-  BootstrapFormRenderer
-} from '../bootstrap-form-renderer';
+import {ValidationControllerFactory, ValidationRules} from 'aurelia-validation';
+import {BootstrapFormRenderer} from '../bootstrap-form-renderer';
 
-@inject(HttpClient, NewInstance.of(ValidationController))
+@inject(HttpClient, ValidationControllerFactory)
 export class Todos {
   newTodoTitle = '';
   todoBoards = [];
   show = true;
-  constructor(httpClient, controller) {
-    //validationMessages.customMessage1 = '\${$displayName} should be more than 3 characteres';
-    console.log('Controller');
-    console.log(controller);
-    
-    
-    this.controller = controller;
+
+  constructor(httpClient, controllerFactory) {
+    this.controller = controllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
     this.httpClient = httpClient;
-
-    ValidationRules
-      .ensure('newTodoTitle').required()
-      .on(this);
+    // this.todoBoards.push(new TodoBoard('test2'));
+    // this.todoBoards.push(new TodoBoard('test3'));
+    // this.todoBoards.push(new TodoBoard('test1'));
   }
 
   attached() {
@@ -49,17 +29,26 @@ export class Todos {
   }
 
   submit() {
-    if (this.newTodoTitle === '') {
-      this.controller.validate();
-    } else {
-      console.log(this.newTodoTitle);
-      
-      this.todoBoards.push(new TodoBoard(NewInstance.of(ValidationController)));
-      this.newTodoTitle = '';
-      this.toggle();
-    }
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          this.todoBoards.push(new TodoBoard(this.newTodoTitle));
+          this.newTodoTitle = '';
+          this.toggle();
+        } else {
+          console.log(result);
+        }
+      });
   }
+
   toggle() {
     this.show = !this.show;
   }
 }
+
+ValidationRules
+  .ensure('newTodoTitle')
+  .displayName('Todo title')
+  .required()
+  .withMessage('\${$displayName} cannot be blank.')
+  .on(Todos);
