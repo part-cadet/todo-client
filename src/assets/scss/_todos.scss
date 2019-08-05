@@ -134,57 +134,62 @@ $primaryColor: cadetblue;
 
 
 
-          .inputContainer {
+          task-add-btn {
+            .form-group {
+              display: flex;
+              justify-content: space-between;
 
-            display: flex;
-            justify-content: space-between;
-            //padding-right: 2px;
-            // -webkit-flex-flow: row wrap;
-            // justify-content: stretch;
+              input[type=text] {
+                box-sizing: border-box;
+                border: none;
+                text-decoration: none;
+                cursor: pointer;
+                flex-grow: 1;
+              }
 
-            input[type=text] {
-              box-sizing: border-box;
-              // width:%;
-              // flex-grow:1;?
-              border: 0px solid;
-              // border-bottom: 1px dotted  rgba(0, 0, 0, 0.404);
-              //flex-grow:2;
-              //padding: 5px 12px;
-              text-decoration: none;
-              // margin: 4px;
-              cursor: pointer;
-              //margin-right:10px;
+              input[type=text]:focus {
+                outline: none;
+              }
+
+              input[type=submit] {
+                font-size: 25px;
+                border-radius: 50%;
+                height: 50px;
+                width: 50px;
+                margin-left: 0px;
+                border-radius: 50%;
+                background-color: cadetblue;
+                border: none;
+                color: white;
+                text-decoration: none;
+                cursor: pointer;
+              }
+
+              input[type=submit]:focus {
+                outline: none;
+              }
+
+
+              .inputItem {
+                align-self: center;
+              }
+
+
+              }
+
+            .form-group.has-error{
+
+              input[type=text]{
+                border-bottom: 1px solid red;
+              }
+              span {
+                position: absolute;
+
+                color: red;
+                font-size:10px;
+              }
             }
 
-            input[type=text]:focus {
-              outline: none;
-            }
-
-            input[type=submit] {
-              font-size: 25px;
-              border-radius: 50%;
-              height: 50px;
-              width: 50px;
-              margin-left: 0px;
-              // size: 45px 45px;
-              border-radius: 50%;
-              background-color: cadetblue;
-              border: none;
-              color: white;
-              //padding: 5px 12px;
-              text-decoration: none;
-              // margin: 4px;
-              cursor: pointer;
-            }
-
-            input[type=submit]:focus {
-              outline: none;
-            }
-
-
-            .inputItem {
-              align-self: center;
-            }
           }
 
 
@@ -291,7 +296,7 @@ $primaryColor: cadetblue;
 
       .white {
         position: relative;
-         
+
 
         background-color: white;
         flex-grow: 1;
@@ -304,7 +309,7 @@ $primaryColor: cadetblue;
         padding:20px;
         color: black;
         font-size: 7px;
-        
+
 
 
         .titleInput {
@@ -316,22 +321,25 @@ $primaryColor: cadetblue;
           height:35px;
           padding:10px;
           margin-bottom: 5px;
+        }
 
+        .titleInput:focus {
+          outline: none;
         }
 
         .has-error{
           .titleInput{
           border: 1px solid red;
-         
+
           }
           span {
             position: absolute;
-           
+
             color: red;
             font-size:10px;
           }
         }
-        .submitbtn{
+        .submitbtn {
           margin-top: 20px;
           box-sizing: border-box;
           width:100%;
@@ -339,6 +347,10 @@ $primaryColor: cadetblue;
           border-radius: 5px;
           height:35px;
           color:white;
+        }
+
+        .submitbtn:focus {
+          outline: none;
         }
       }
 
@@ -472,7 +484,7 @@ $primaryColor: cadetblue;
 }
 
 .has-error{
-  
+
   label{
       color: red;
   }
