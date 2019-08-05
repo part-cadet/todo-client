@@ -15,9 +15,6 @@ export class Todos {
     this.controller = controllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
     this.httpClient = httpClient;
-    // this.todoBoards.push(new TodoBoard('test2'));
-    // this.todoBoards.push(new TodoBoard('test3'));
-    // this.todoBoards.push(new TodoBoard('test1'));
   }
 
   attached() {
