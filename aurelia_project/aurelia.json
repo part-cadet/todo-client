@@ -9,6 +9,7 @@
     "valueConverters": "resources/value-converters",
     "bindingBehaviors": "resources/binding-behaviors"
   },
+  
   "transpiler": {
     "id": "babel",
     "fileExtension": ".js"
@@ -26,4 +27,5 @@
     "port": 8080,
     "output": "dist"
   }
+  
 }
