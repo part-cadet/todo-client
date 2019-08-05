@@ -14,7 +14,6 @@ export class Boards {
   newBoardOwner;
   show = true;
   constructor(controllerFactory) {
-    //validationMessages.customMessage1 = '\${$displayName} should be more than 3 characteres';
     this.controller = controllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
     this.newBoardTitle = '';
@@ -24,25 +23,28 @@ export class Boards {
     this.boards.push(new Board('board Faezeh', 'Nafise', ['Negin Khatibzadeh', 'Fatemeh Ghanbari', 'Nafiseh Nikeghbal', 'Nafiseh Nikeghbal']));
   }
 
-  submit() {
-    if (this.newBoardTitle === '' || this.newBoardOwner === '') { this.controller.validate();} else {
-      this.boards.push(new Board(this.newBoardTitle, this.newBoardOwner, []));
-      this.newBoardTitle = '';
-      this.newBoardOwner = '';
-      this.show = !this.show;
-    }
+  addBoard() {
+    console.log('here');
+    
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          this.boards.push(new Board(this.newBoardTitle, this.newBoardOwner, []));
+          this.newBoardTitle = '';
+          this.newBoardOwner = '';
+          this.toggle();
+        } else {
+          console.log(result);
+        }
+      });
   }
 
-  // this.boards.push(new Board('New Board', 'Owner', []));
   toggle() {
     this.show = !this.show;
-    // console.log("show");
   }
 }
 
 ValidationRules
-  .ensure(a => a.newBoardTitle).required()
-  .ensure(a => a.newBoardOwner).required()
-
-
+  .ensure('newBoardTitle').required()
+  .ensure('newBoardOwner').required()
   .on(Boards);

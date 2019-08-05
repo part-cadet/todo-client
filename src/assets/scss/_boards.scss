@@ -94,13 +94,10 @@ $primaryColor: cadetblue;
                     }
                     span {
                       position: absolute;
-                     
                       color: red;
                       font-size:10px;
                     }
                   }
-
-                
 
                   input{
                     display: flex;
@@ -108,7 +105,7 @@ $primaryColor: cadetblue;
                     align-items: center;
                     width: 400px;
                     height: 33px;
-                    margin-top: 15px;
+                    margin-top: 20px;
                     margin-bottom: 5px;
                     padding-left: 10px;
                     border: 1px $primaryColor solid;
@@ -116,13 +113,13 @@ $primaryColor: cadetblue;
                     font-size: 15px;
                   }
 
-                  button{
+                  input[type=submit]{
                     display: flex;
                     justify-content:center;
                     align-items: center;
                     width: 414px;
                     height: 30px;
-                    margin-top: 20px;
+                    margin-top: 30px;
                     margin-bottom: 15px;
                     border-radius: 5px;
                     background-color: $primaryColor;
@@ -130,8 +127,10 @@ $primaryColor: cadetblue;
                     color: white;
                     font-size: 15px;
                     cursor: pointer;
+                  }
 
-
+                  input[type=submit]:focus {
+                    outline: none;
                   }
                 }
 

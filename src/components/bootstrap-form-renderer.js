@@ -11,6 +11,7 @@ export class BootstrapFormRenderer {
       }
     }
   }
+
   add(element, result) {
     if (result.valid) {
       return;
@@ -28,10 +29,12 @@ export class BootstrapFormRenderer {
     message.id = `validation-message-${result.id}`;
     formGroup.appendChild(message);
   }
+
   remove(element, result) {
     if (result.valid) {
       return;
     }
+
     const formGroup = element.closest('.form-group');
     if (!formGroup) {
       return;
@@ -40,6 +43,7 @@ export class BootstrapFormRenderer {
     const message = formGroup.querySelector(`#validation-message-${result.id}`);
     if (message) {
       formGroup.removeChild(message);
+
       // remove the has-error class from the enclosing form-group div
       if (formGroup.querySelectorAll('.help-block.validation-message').length === 0) {
         formGroup.classList.remove('has-error');

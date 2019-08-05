@@ -40,7 +40,7 @@ exports.config = {
         '--disable-translate',
         '--disable-background-timer-throttling',
         '--disable-renderer-backgrounding',
-        '--disable-device-discovery-notifications',
+        '--disable-device-discovery-notifications'
         /* enable these if you'd like to test using Chrome Headless
           '--no-gpu',
           '--headless'
@@ -57,5 +57,5 @@ exports.config = {
 
   plugins: [{
     package: 'aurelia-protractor-plugin'
-  }],
+  }]
 };

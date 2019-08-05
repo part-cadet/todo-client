@@ -1,13 +1,19 @@
-import { TodoBoard } from '../../models/todos/todo-board-model';
-import { inject } from 'aurelia-framework';
-import { HttpClient } from 'aurelia-fetch-client';
+import {TodoBoard} from '../../models/todos/todo-board-model';
+import {inject} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
 
-@inject(HttpClient)
+import {ValidationControllerFactory, ValidationRules} from 'aurelia-validation';
+import {BootstrapFormRenderer} from '../bootstrap-form-renderer';
+
+@inject(HttpClient, ValidationControllerFactory)
 export class Todos {
   newTodoTitle = '';
   todoBoards = [];
   show = true;
-  constructor(httpClient) {
+
+  constructor(httpClient, controllerFactory) {
+    this.controller = controllerFactory.createForCurrentScope();
+    this.controller.addRenderer(new BootstrapFormRenderer());
     this.httpClient = httpClient;
   }
 
@@ -19,16 +25,27 @@ export class Todos {
       });
   }
 
-  addTodo() {
-    if (this.newTodoTitle !== '') {
-      this.todoBoards.push(new TodoBoard(this.newTodoTitle));
-      this.newTodoTitle = '';
-    }
-    this.show = !this.show;
+  submit() {
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          this.todoBoards.push(new TodoBoard(this.newTodoTitle));
+          this.newTodoTitle = '';
+          this.toggle();
+        } else {
+          console.log(result);
+        }
+      });
   }
 
   toggle() {
     this.show = !this.show;
-    // console.log("show");
   }
 }
+
+ValidationRules
+  .ensure('newTodoTitle')
+  .displayName('Todo title')
+  .required()
+  .withMessage('\${$displayName} cannot be blank.')
+  .on(Todos);

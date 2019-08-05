@@ -8,8 +8,8 @@ let karma = done => {
     singleRun: !CLIOptions.hasFlag('watch'),
     autoWatch: CLIOptions.hasFlag('watch')
   }, function(exitCode) {
-    console.log('Karma has exited with ' + exitCode)
-    process.exit(exitCode)
+    console.log('Karma has exited with ' + exitCode);
+    process.exit(exitCode);
   }).start();
 };
 

@@ -3,7 +3,7 @@
 import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import environment from './environment';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 
 export function configure(aurelia) {
   aurelia.use
@@ -12,6 +12,7 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-validation'));
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
+
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
