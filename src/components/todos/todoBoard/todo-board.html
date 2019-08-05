@@ -1,23 +1,21 @@
 <template>
   <require from="../task/task"></require>
+  <require from="../../custom/task-add-btn/task-add-btn"></require>
 
   <div class="todoBox">
+
     <div class="title">
       <p>${todoboard.title}</p>
     </div>
+
     <div class="allTasksContainer">
-      <div class="inputContainer">
-        <form submit.delegate="todoboard.addTask()">
-          <div class="form-group">
-            <input type="text" name="task" placeholder="Enter task here" value.bind="todoboard.newTaskDesc">
-            <input type="submit" value="+">
-          </div>
-        </form>
-      </div>
+
+      <task-add-btn tasks.bind="todoboard.tasks"></task-add-btn>
 
       <hr>
 
       <task repeat.for="task of todoboard.tasks" task.bind="task"></task>
+
     </div>
 
   </div>
