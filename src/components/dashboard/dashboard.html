@@ -5,7 +5,7 @@
     <div class="boardBoxOrganizer">
       <div id="boardBox" class="boardBox">
 
-        <info-board repeat.for="board of infoBoards" infoboard.bind="board"></info-board>
+        <info-board repeat.for="board of infoBoards" infoboard.bind="board" class="${board.status === 'DONE' ? 'done' : ''}"></info-board>
 
       </div>
 </template>

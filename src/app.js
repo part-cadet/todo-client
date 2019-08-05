@@ -1,5 +1,5 @@
 import { PLATFORM } from 'aurelia-pal';
-import { HttpClient, json } from 'aurelia-fetch-client';
+import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 const PORT = 3000;
 

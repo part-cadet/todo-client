@@ -1,13 +1,12 @@
 <template>
     <div class="name">${infoboard.title}</div>
-    <div class="status"></div>
+    <div class="status">${infoboard.status}</div>
     <ul>
-      <li>${infoboard.todocount} Todos (${infoboard.taskcount} Tasks)</li>
+      <li>${infoboard.todoBoards.length} Todos (${infoboard.taskcount} Tasks)</li>
       <li>${infoboard.unfinishedtasks} Remaining Tasks</li>
       <li>${infoboard.owner} (Owner)</li>
     </ul>
     <div class="members">
-      <img src="../../../assets/pictures/img_avatar.png" alt="img_avatar1">
-      <img src="../../../assets/pictures/img_avatar2.png" alt="img_avatar2">
+      <img repeat.for="picture of infoboard.memberPictures" src.bind="picture" alt="member_avatar">
     </div>
 </template>
