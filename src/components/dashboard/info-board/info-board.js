@@ -44,7 +44,7 @@ export class InfoBoard {
     this.httpClient.fetch(`boards/membersof/${this.infoboard.id}`)
       .then(response => response.json())
       .then(data => {
-        this.infoboard.memberPictures = data.result.map(element => `../../../assets/pictures/${element.profile_pic}.png`);
+        this.infoboard.memberPictures = data.result.map(element => require(`../../../assets/pictures/${element.profile_pic}.png`));
       });
   }
 }
