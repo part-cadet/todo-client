@@ -15,7 +15,9 @@ export class InfoBoard {
     this.httpClient.fetch(`boards/todosof/${this.infoboard.id}`)
       .then(response => response.json())
       .then(data => {
+        console.log(data.result);
         this.infoboard.todoBoards = data.result.map(element => Object.assign(new TodoBoard(), element));
+        // console.log(this.infoboard.todoBoards);
       });
 
     // Fetching name of the board's owner
