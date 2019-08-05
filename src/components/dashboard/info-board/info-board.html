@@ -7,6 +7,6 @@
       <li>${infoboard.owner} (Owner)</li>
     </ul>
     <div class="members">
-      <img repeat.for="picture of infoboard.memberPictures" src="../../../assets/pictures/img_avatar.png" alt="member_avatar">
+      <img repeat.for="picture of infoboard.memberPictures" src.bind="picture" alt="member_avatar">
     </div>
 </template>
