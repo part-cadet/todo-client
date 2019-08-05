@@ -1,26 +1,43 @@
-import { TodoBoard } from '../../models/todos/todo-board-model';
-import { inject } from 'aurelia-framework';
-import { HttpClient } from 'aurelia-fetch-client';
+import {
+  TodoBoard
+} from '../../models/todos/todo-board-model';
+import {
+  inject, NewInstance
+} from 'aurelia-framework';
+import {
+  HttpClient
+} from 'aurelia-fetch-client';
 
-import { ValidationControllerFactory, ValidationRules } from 'aurelia-validation';
+import {
+  validationMessages
+} from 'aurelia-validation';
+import {
+  ValidationController,
+  //   ValidationController,
+  ValidationRules
+} from 'aurelia-validation';
+import {
+  BootstrapFormRenderer
+} from '../bootstrap-form-renderer';
 
-@inject(ValidationControllerFactory)
-export class TodoPage {
-  constructor(controllerFactory) {
-    this.controller = controllerFactory.createForCurrentScope();
-    ValidationRules
-      .ensure('title').required()
-      .on(this);
-  }
-}
-
-@inject(HttpClient)
+@inject(HttpClient, NewInstance.of(ValidationController))
 export class Todos {
   newTodoTitle = '';
   todoBoards = [];
   show = true;
-  constructor(httpClient) {
+  constructor(httpClient, controller) {
+    //validationMessages.customMessage1 = '\${$displayName} should be more than 3 characteres';
+    console.log('Controller');
+    console.log(controller);
+    
+    
+    this.controller = controller;
+    this.controller.addRenderer(new BootstrapFormRenderer());
     this.httpClient = httpClient;
+
+    ValidationRules
+      .ensure('newTodoTitle').required()
+      .on(this);
   }
 
   attached() {
@@ -31,16 +48,18 @@ export class Todos {
       });
   }
 
-  addTodo() {
-    if (this.newTodoTitle !== '') {
-      this.todoBoards.push(new TodoBoard(this.newTodoTitle));
+  submit() {
+    if (this.newTodoTitle === '') {
+      this.controller.validate();
+    } else {
+      console.log(this.newTodoTitle);
+      
+      this.todoBoards.push(new TodoBoard(NewInstance.of(ValidationController)));
       this.newTodoTitle = '';
+      this.toggle();
     }
-    this.show = !this.show;
   }
-
   toggle() {
     this.show = !this.show;
-    // console.log("show");
   }
 }

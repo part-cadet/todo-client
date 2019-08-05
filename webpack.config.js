@@ -22,15 +22,15 @@ const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '/';
 
 const cssRules = [
-  { loader: 'css-loader' },
+  { loader: 'css-loader' }
 ];
 
 const sassRules = [
   {
-     loader: "sass-loader",
-     options: {
-       includePaths: ["node_modules"]
-     }
+    loader: 'sass-loader',
+    options: {
+      includePaths: ['node_modules']
+    }
   }
 ];
 
@@ -62,7 +62,7 @@ module.exports = ({ production, server, extractCss, coverage, analyze, karma } =
     // https://webpack.js.org/plugins/split-chunks-plugin/
     splitChunks: {
       hidePathInfo: true, // prevents the path from being used in the filename when using maxSize
-      chunks: "initial",
+      chunks: 'initial',
       // sizes are compared against source before minification
       maxInitialRequests: Infinity, // Default is 3, make this unlimited if using HTTP/2
       maxAsyncRequests: Infinity, // Default is 5, make this unlimited if using HTTP/2
@@ -99,7 +99,7 @@ module.exports = ({ production, server, extractCss, coverage, analyze, karma } =
         },
         vendors: { // picks up everything else being used from node_modules that is less than minSize
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
+          name: 'vendors',
           priority: 19,
           enforce: true // create chunk regardless of the size of the chunk
         },
@@ -180,7 +180,7 @@ module.exports = ({ production, server, extractCss, coverage, analyze, karma } =
         use: extractCss ? [{
           loader: MiniCssExtractPlugin.loader
         }, ...cssRules, ...sassRules
-        ]: ['style-loader', ...cssRules, ...sassRules],
+        ] : ['style-loader', ...cssRules, ...sassRules],
         issuer: /\.[tj]s$/i
       },
       {
@@ -198,7 +198,7 @@ module.exports = ({ production, server, extractCss, coverage, analyze, karma } =
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
       { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff' } },
       // load these fonts normally, as files:
-      { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'file-loader' },
+      { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'file-loader' }
     ]
   },
   plugins: [

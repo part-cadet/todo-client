@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     /**
      * base path that will be used to resolve all patterns (e.g. files, exclude)
@@ -43,7 +43,7 @@ module.exports = function (config) {
     coverageReporter: {
       reporters: [ { type: 'html' }, { type: 'lcovonly' }, { type: 'text-summary' } ],
       dir: path.resolve(__dirname, 'coverage-karma'),
-      subdir: '.',
+      subdir: '.'
     },
 
 
@@ -70,7 +70,7 @@ module.exports = function (config) {
      * available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
      */
     browsers: [
-      'Chrome',
+      'Chrome'
     ],
 
     /*
@@ -78,5 +78,5 @@ module.exports = function (config) {
      * if true, Karma captures browsers, runs the tests and exits
      */
     singleRun: true
-  })
-}
+  });
+};

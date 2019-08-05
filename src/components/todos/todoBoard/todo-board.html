@@ -7,15 +7,16 @@
     </div>
     <div class="allTasksContainer">
       <div class="inputContainer">
-        <form>
-        <input type="text" name="task" placeholder="Enter task here" onfocus="this.placeholder=''"
-          onblur="this.placeholder='Enter task her'" value.bind="todoboard.newTaskDesc">
-        <input type="submit" value="+" click.delegate="todoboard.addTask()">
-      </form>
+        <form submit.delegate="todoboard.addTask()">
+          <div class="form-group">
+            <input type="text" name="task" placeholder="Enter task here" value.bind="todoboard.newTaskDesc">
+            <input type="submit" value="+">
+          </div>
+        </form>
       </div>
 
       <hr>
-      
+
       <task repeat.for="task of todoboard.tasks" task.bind="task"></task>
     </div>
 

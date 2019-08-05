@@ -6,22 +6,22 @@ describe('aurelia skeleton app', function() {
   let poWelcome;
   let poSkeleton;
 
-  beforeEach(async () => {
+  beforeEach(async() => {
     poSkeleton = new PageObjectSkeleton();
     poWelcome = new PageObjectWelcome();
 
     await browser.loadAndWaitForAureliaPage(`http://localhost:${config.port}`);
   });
 
-  it('should load the page and display the initial page title', async () => {
+  it('should load the page and display the initial page title', async() => {
     await expect(await poSkeleton.getCurrentPageTitle()).toContain('Aurelia');
   });
 
-  it('should display greeting', async () => {
+  it('should display greeting', async() => {
     await expect(await poWelcome.getGreeting()).toBe('Welcome to the Aurelia Navigation App!');
   });
 
-  it('should automatically write down the fullname', async () => {
+  it('should automatically write down the fullname', async() => {
     await poWelcome.setFirstname('Jane');
     await poWelcome.setLastname('Doe');
 
@@ -34,11 +34,11 @@ describe('aurelia skeleton app', function() {
     );
   });
 
-  it('should show alert message when clicking submit button', async () => {
+  it('should show alert message when clicking submit button', async() => {
     await expect(await poWelcome.openAlertDialog()).toBe(true);
   });
 
-  it('should navigate to users page', async () => {
+  it('should navigate to users page', async() => {
     await poSkeleton.navigateTo('#/users');
     browser.sleep(200);
     await expect(await poSkeleton.getCurrentPageTitle()).toBe('Github Users | Aurelia');

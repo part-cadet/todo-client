@@ -1,7 +1,6 @@
 $primaryColor: cadetblue;
 
 
-
 .organizer {
   background: transparent;
   display: flex;
@@ -292,9 +291,7 @@ $primaryColor: cadetblue;
 
       .white {
         position: relative;
-          ul{
-            position: absolute;
-          }
+         
 
         background-color: white;
         flex-grow: 1;
@@ -305,20 +302,37 @@ $primaryColor: cadetblue;
         justify-content: center;
         align-content: center;
         padding:20px;
+        color: black;
+        font-size: 7px;
         
 
 
         .titleInput {
           box-sizing: border-box;
           width: 100%;
-          margin-bottom: 10px;
-          border: 1px solid rgb(196, 196, 196);
+          // margin-bottom: 10px;
+          border: 1px solid $primaryColor;
           border-radius: 5px;
           height:35px;
           padding:10px;
+          margin-bottom: 5px;
+
         }
 
+        .has-error{
+          .titleInput{
+          border: 1px solid red;
+         
+          }
+          span {
+            position: absolute;
+           
+            color: red;
+            font-size:10px;
+          }
+        }
         .submitbtn{
+          margin-top: 20px;
           box-sizing: border-box;
           width:100%;
           background-color: cadetblue;
@@ -456,3 +470,16 @@ $primaryColor: cadetblue;
     background-color: #1f7281;
   }
 }
+
+.has-error{
+  
+  label{
+      color: red;
+  }
+
+  .titleInput{
+    // background-color: #1f7281;
+    border-color:red;
+  }
+}
+

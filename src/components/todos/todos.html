@@ -1,69 +1,58 @@
 <template>
   <require from="./todoBoard/todo-board"></require>
 
-      <div id="Todos" class="tabcontent">
-        <div id="organizer" class="organizer">
+  <div id="Todos" class="tabcontent">
+    <div id="organizer" class="organizer">
 
 
-          <div id="todoHolder" class="todoHolder">
+      <div id="todoHolder" class="todoHolder">
 
-            <div id="todosInfo" class="todosInfo">
-              <div class="text">
-                <p>Total of ${todoBoards.length} boards</p>
-              </div>
+        <div id="todosInfo" class="todosInfo">
+          <div class="text">
+            <p>Total of ${todoBoards.length} boards</p>
+          </div>
 
-              <div class="dropdown">
-                <button class="dropbtn">Boards</button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div>
-              </div>
+          <div class="dropdown">
+            <button class="dropbtn">Boards</button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
             </div>
-            <div id="boardBoxTodo" class="boardBoxTodo">
+          </div>
+        </div>
+        <div id="boardBoxTodo" class="boardBoxTodo">
 
-              <todo-board repeat.for="todoboard of todoBoards" todoboard.bind="todoboard"></todo-board>
+          <todo-board repeat.for="todoboard of todoBoards" todoboard.bind="todoboard"></todo-board>
+
+          <button class="todoBox plus" if.bind="show" click.delegate='toggle()'>
+            <p>+</p>
+          </button>
+          <div class="todoBox plus white" if.bind="!show">
 
 
-           
-              <!-- <button class="todoBox plus" click.delegate="addTodo()">
-                 
-                <p>+</p>
-              </button> -->
 
-              
-              <!-- <button  click.delegate='showCard = !showCard'>Show the card</button>
-              <button if.bind='showCard'>hi<button> -->
+            <form submit.delegate="submit()">
+              <div class="form-group">
 
-                  <button class="todoBox plus" if.bind="show" click.delegate='toggle()'><p>+</p></button>
-                  <div class="todoBox plus white" if.bind="!show" >
-                   
-                      <form>
-                          <!-- <ul if.bind="controller.errors">
-                              <li repeat.for="error of controller.errors">
-                                  ${error.message}
-                              </li>
-                          </ul> -->
-                      <input class="titleInput" type="text" name="task" placeholder="Enter todo title here" onfocus="this.placeholder=''"
-                      onblur="this.placeholder='Enter todo title here'" value.bind="newTodoTitle"autofocus>
-                     
-                    
+                <input class="titleInput" type="text" name="task" placeholder="Enter todo title here" autofocus
+                  value.bind="newTodoTitle & validate">
 
-                      
-                      <button type="submit" class="submitbtn" click.delegate="addTodo()" >Submit</button>
-                   
-                    </form>
-                
-                
-                  </div>
+              </div>
+        
+              <button type="submit" class="submitbtn">Submit</button>
 
+            </form>
 
 
           </div>
+
+
+
         </div>
-
-
       </div>
+
+
     </div>
+  </div>
 </template>
