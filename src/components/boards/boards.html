@@ -1,5 +1,6 @@
 <template>
-  <require from="./board/board"></require>
+  <form submit.delegate="submit()">
+    <require from="./board/board"></require>
 
     <div class="bg">
       <div id="Boards" class="tabcontent">
@@ -7,33 +8,35 @@
           <div class="boardBox2">
 
 
-           <board repeat.for="board of boards" board.bind="board"></board>
-        
+            <board repeat.for="board of boards" board.bind="board"></board>
+
             <button class="finalButton" if.bind="show" click.delegate="toggle()">+</button>
-            <div class="boards" if.bind="!show" >
-                    <div class="boardsOwnerAndName ">
-                        <div class="newBoard">
+            <div class="boards" if.bind="!show">
+              <div class="boardsOwnerAndName ">
+                <div class="newBoard">
 
-                            <input type="text" name="board" placeholder="Enter board name here" onfocus="this.placeholder=''"
-                            onblur="this.placeholder='Enter board name here'" value.bind="newBoardTitle">
-                           
-                            <input type="text" name="board" placeholder="Enter board owner here" onfocus="this.placeholder=''"
-                            onblur="this.placeholder='Enter board owner here'" value.bind="newBoardOwner">
-            
-                             <button click.delegate="addBoard()">submit</button>
-                          </div>
-                      
-                    </div>
-                
-                
-                 
-              
-              
-              
+                  <div class="form-group">
+                    <input type="text" name="board" placeholder="Enter board name here" value.bind="newBoardTitle & validate">
+                  </div>
 
-           
-          
-          
+                  <div class="form-group">
+                    <input type="text" name="board" placeholder="Enter board owner here" value.bind="newBoardOwner & validate">
+                  </div>
+
+                  <button type="submit">submit</button>
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+
+
             </div>
 
           </div>
