@@ -14,7 +14,6 @@ export class Dashboard {
       .then(response => response.json())
       .then(data => {
         this.infoBoards = data.map(element => Object.assign(new InfoBoardModel(), element));
-        console.log(this.infoBoards);
       });
   }
 }
