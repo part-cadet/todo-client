@@ -11,23 +11,4 @@ export class Board {
     this.members = members;
     this.newMember = '';
   }
-
-  addMember() {
-    if (this.newMember !== '') {
-      this.members.push(this.newMember);
-      this.newMember = '';
-    }
-    // this.members.push('New Member');
-    this.showInput = !this.showInput;
-    // this.showInput = !showInput;
-  }
-
-  showing() {
-    // if (this.newMember !== '') {
-    //   this.members.push(newMember);
-    // }
-
-    this.showInput = !this.showInput;
-    // this.showInput = !showInput;
-  }
 }
