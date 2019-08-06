@@ -1,6 +1,6 @@
 import {Board}  from '../../models/boards/board-model';
 import {inject} from 'aurelia-dependency-injection';
-// import {validationMessages} from 'aurelia-validation';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {
   ValidationControllerFactory,
   //   ValidationController,
@@ -8,28 +8,48 @@ import {
 } from 'aurelia-validation';
 import {BootstrapFormRenderer} from '../bootstrap-form-renderer';
 
-@inject(ValidationControllerFactory)
+@inject(ValidationControllerFactory, HttpClient)
 export class Boards {
-  newBoardTitle;
-  newBoardOwner;
+  newBoardTitle = '';
+  newBoardOwner = '';
+  boards = [];
   show = true;
-  constructor(controllerFactory) {
+  constructor(controllerFactory, httpClient) {
+    this.httpClient = httpClient;
     this.controller = controllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
-    this.newBoardTitle = '';
-    this.newBoardOwner = '';
-    this.boards = [];
-    this.boards.push(new Board('board Nafiseh', 'Nafise', ['Negin Khatibzadeh', 'Fatemeh Ghanbari']));
-    this.boards.push(new Board('board Faezeh', 'Nafise', ['Negin Khatibzadeh', 'Fatemeh Ghanbari', 'Nafiseh Nikeghbal', 'Nafiseh Nikeghbal']));
+  }
+  attached() {
+    this.getBoards();
+  }
+
+  getBoards() {
+    this.httpClient.fetch('boards')
+      .then(response => response.json())
+      .then(data => {
+        this.boards = data.map(element => Object.assign(new Board(), element));
+      });
   }
 
   addBoard() {
     console.log('here');
-    
+
     this.controller.validate()
       .then(result => {
         if (result.valid) {
-          this.boards.push(new Board(this.newBoardTitle, this.newBoardOwner, []));
+          this.httpClient.fetch('boards', {
+            method: 'POST',
+            body: json({
+              title: this.newBoardTitle,
+              owner_name: this.newBoardOwner
+            })
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data); this.getBoards();
+            });
+
+          // this.boards.push(new Board(this.newBoardTitle, this.newBoardOwner, []));
           this.newBoardTitle = '';
           this.newBoardOwner = '';
           this.toggle();
