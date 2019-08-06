@@ -1,7 +1,7 @@
 <template>
     <div class="taskContainer">
         <div class="taskItem">
-          <input type="checkbox" checked.bind="task.done">
+          <input type="checkbox" checked.bind="task.done" change.delegate="updateTask($event.target.checked)">
           <label>${task.description}</label>
         </div>
         <div class="taskItem">

@@ -1,4 +1,5 @@
 export class Task {
+  id;
   description;
   todo_id;
   done;
