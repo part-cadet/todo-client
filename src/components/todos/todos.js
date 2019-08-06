@@ -1,6 +1,6 @@
 import {TodoBoard} from '../../models/todos/todo-board-model';
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json } from 'aurelia-fetch-client';
 
 import {ValidationControllerFactory, ValidationRules} from 'aurelia-validation';
 import {BootstrapFormRenderer} from '../bootstrap-form-renderer';
@@ -18,10 +18,14 @@ export class Todos {
   }
 
   attached() {
+    this.getTodoBoards();
+  }
+
+  getTodoBoards() {
     this.httpClient.fetch('todo')
       .then(response => response.json())
       .then(data => {
-        this.todoBoards = data.result.map(element => Object.assign(new TodoBoard(), element));
+        this.todoBoards = data.map(element => Object.assign(new TodoBoard(), element));
       });
   }
 
@@ -29,7 +33,18 @@ export class Todos {
     this.controller.validate()
       .then(result => {
         if (result.valid) {
-          this.todoBoards.push(new TodoBoard(this.newTodoTitle));
+          this.httpClient.fetch('todo/10', {
+            method: 'POST',
+            body: json({
+              title: this.newTodoTitle
+            })
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+            });
+            
+          this.getTodoBoards();
           this.newTodoTitle = '';
           this.toggle();
         } else {

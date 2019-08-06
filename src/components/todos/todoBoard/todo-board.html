@@ -10,7 +10,7 @@
 
     <div class="allTasksContainer">
 
-      <task-add-btn tasks.bind="todoboard.tasks"></task-add-btn>
+      <task-add-btn tasks.bind="todoboard.tasks" todoid.bind="todoboard.id" refreshtodo.call="getTasksOfTodo()"></task-add-btn>
 
       <hr>
 
