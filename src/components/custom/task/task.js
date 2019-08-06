@@ -10,7 +10,7 @@ import {
 
 @inject(HttpClient)
 export class Task {
-  @bindable ({ defaultBindingMode: bindingMode.twoWay } task;
+  @bindable ({ defaultBindingMode: bindingMode.twoWay }) task;
 
   id;
   description;
