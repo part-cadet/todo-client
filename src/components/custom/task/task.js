@@ -1,4 +1,4 @@
-import { bindable } from 'aurelia-framework';
+import { bindable,  bindingMode } from 'aurelia-framework';
 import {
   HttpClient, json
 } from 'aurelia-fetch-client';
@@ -10,20 +10,19 @@ import {
 
 @inject(HttpClient)
 export class Task {
-  @bindable task
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) task;
 
   constructor(httpClient) {
-    this.httpClient = this.httpClient;
+    this.httpClient = httpClient;
   }
 
 
   updateTask(value) {
     console.log("task id "+this.task.id);
-    
-    this.httpClient.fetch(`task/${this.task.id}`, {
+    this.httpClient.fetch(`tasks/${this.task.id}`, {
       method: 'PUT',
       body: json({
-        description: "updated",
+        // description: 'updated',
         done: value
       })
     })
@@ -36,6 +35,6 @@ export class Task {
 
 
   logchange(value) {
-    console.log("here is the value"+value);
+    console.log("here is the value" + value);
   }
 }

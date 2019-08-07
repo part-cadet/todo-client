@@ -1,8 +1,8 @@
 export class TodoBoard {
+  id;
+  board_id;
   title;
   newTaskDesc;
-  constructor(title) {
-    this.title = title;
-    this.tasks = [];
-  }
+  tasks=[];
+  constructor() {}
 }
