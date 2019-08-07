@@ -1,8 +1,8 @@
 <template>
     <div class="taskContainer">
         <div class="taskItem">
-          <input type="checkbox" checked.bind="done" change.delegate="updateTask($event.target.checked)">
-          <label>${description}</label>
+          <input type="checkbox" checked.bind="task.done" change.delegate="updateTask($event.target.checked)">
+          <label>${task.description}</label>
         </div>
         <div class="taskItem">
           <img src="../../../assets/pictures/img_avatar.png" alt="img_avatar1">

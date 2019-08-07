@@ -10,30 +10,19 @@ import {
 
 @inject(HttpClient)
 export class Task {
-  @bindable ({ defaultBindingMode: bindingMode.twoWay }) task;
-
-  id;
-  description;
-  todo_id;
-  done;
-  assignee;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) task;
 
   constructor(httpClient) {
-    this.httpClient = this.httpClient;
-
-    this.description = description;
-    this.done = false;
-    this.assignee = assignee;
+    this.httpClient = httpClient;
   }
 
 
   updateTask(value) {
     console.log("task id "+this.task.id);
-    
-    this.httpClient.fetch(`task/${this.task.id}`, {
+    this.httpClient.fetch(`tasks/${this.task.id}`, {
       method: 'PUT',
       body: json({
-        description: "updated",
+        // description: 'updated',
         done: value
       })
     })
@@ -46,6 +35,6 @@ export class Task {
 
 
   logchange(value) {
-    console.log("here is the value"+value);
+    console.log("here is the value" + value);
   }
 }
