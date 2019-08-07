@@ -24,7 +24,7 @@ export class InfoBoard {
     this.httpClient.fetch(`boards/ownerof/${this.infoboard.id}`)
       .then(response => response.json())
       .then(data => {
-        this.infoboard.owner = data.result[0].name;
+        this.infoboard.owner = data.result[0].owner_name;
       });
 
     // Fetching all the tasks in the board and calculting finished and not finished ones

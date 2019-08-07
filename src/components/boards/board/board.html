@@ -21,7 +21,7 @@
         </ul>
       </div>
 
-      <add-member-btn members.bind="board.members"></add-member-btn>
+      <add-member-btn members.bind="board.members" boardid.bind="board.id" refreshmembers.call="getMembers()"></add-member-btn>
     </div>
 
   </div>

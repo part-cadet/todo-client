@@ -1,14 +1,12 @@
 // import {Member}  from './member/member-model';
 export class Board {
-  owner;
-  title;
+  id;
+  title = 'New Board';
+  owner = 'New Owner';
   members = [];
   showInput;
   newMember='';
-  constructor(title, owner, members) {
-    this.title = title;
-    this.owner = owner;
-    this.members = members;
-    this.newMember = '';
+  constructor() {
+
   }
 }
