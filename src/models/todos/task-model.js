@@ -6,7 +6,7 @@ export class Task {
   assignee;
   constructor(description, assignee) {
     this.description = description;
-    this.done = false;
     this.assignee = assignee;
+    this.done = false;
   }
 }

@@ -4,6 +4,5 @@ export class TodoBoard {
   title;
   newTaskDesc;
   tasks=[];
-  constructor() {
-  }
+  constructor() {}
 }
