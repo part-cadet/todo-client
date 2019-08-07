@@ -2,10 +2,9 @@ import {
   bindable
 } from 'aurelia-framework';
 
-
 import {
   Task
-} from '../../custom/task/task';
+} from '../../../models/todos/task-model';
 
 import {
   inject
@@ -30,7 +29,7 @@ export class TodoBoard {
 
   getTasksOfTodo() {
     console.log('reached ');
-    
+
     this.httpClient.fetch(`todo/tasksof/${this.todoboard.id}`)
       .then(response => (response.json()))
       .then(data => {
