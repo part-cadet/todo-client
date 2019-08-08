@@ -32,8 +32,6 @@ export class Boards {
   }
 
   addBoard() {
-    console.log('here');
-
     this.controller.validate()
       .then(result => {
         if (result.valid) {
