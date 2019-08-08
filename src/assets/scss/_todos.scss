@@ -136,45 +136,46 @@ $primaryColor: cadetblue;
 
           task-add-btn {
             .form-group {
-              display: flex;
-              justify-content: space-between;
+              
+              .inputtaskform {
+                display: flex;
+                justify-content: space-between;
 
-              input[type=text] {
-                box-sizing: border-box;
-                border: none;
-                text-decoration: none;
-                cursor: pointer;
-                flex-grow: 1;
+                input[type=text] {
+                  box-sizing: border-box;
+                  border: none;
+                  text-decoration: none;
+                  cursor: pointer;
+                  flex-grow: 1;
+                }
+  
+                input[type=text]:focus {
+                  outline: none;
+                }
+  
+                input[type=submit] {
+                  font-size: 25px;
+                  border-radius: 50%;
+                  height: 40px;
+                  width: 40px;
+                  margin-left: 0px;
+                  border-radius: 50%;
+                  background-color: cadetblue;
+                  border: none;
+                  color: white;
+                  text-decoration: none;
+                  cursor: pointer;
+                }
+  
+                input[type=submit]:focus {
+                  outline: none;
+                }
+  
+  
+                .inputItem {
+                  align-self: center;
+                }  
               }
-
-              input[type=text]:focus {
-                outline: none;
-              }
-
-              input[type=submit] {
-                font-size: 25px;
-                border-radius: 50%;
-                height: 40px;
-                width: 40px;
-                margin-left: 0px;
-                border-radius: 50%;
-                background-color: cadetblue;
-                border: none;
-                color: white;
-                text-decoration: none;
-                cursor: pointer;
-              }
-
-              input[type=submit]:focus {
-                outline: none;
-              }
-
-
-              .inputItem {
-                align-self: center;
-              }
-
-
             }
 
             .form-group.has-error {
@@ -184,8 +185,8 @@ $primaryColor: cadetblue;
               }
 
               span {
-                position: absolute;
-
+                // position: absolute;
+                order: -1;
                 color: red;
                 font-size: 10px;
               }
@@ -245,61 +246,69 @@ $primaryColor: cadetblue;
                 overflow: hidden;
               }
 
-              img {
-                border-radius: 50%;
-                height: 40px;
-                width: 40px;
-                //margin-left: -20px;
+              .img-menu {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                img {
+                  border-radius: 50%;
+                  height: 40px;
+                  width: 40px;
+                  //margin-left: -20px;
+                }
+  
+                img.dropbtn {
+                  background-color: transparent;
+                  color: white;
+                  margin: 0;
+                  padding: 0;
+                  border: none;
+                  height: 20px;
+                  width: 20px;
+                  //margin: 0 -20px 0 -20px;
+                }
+  
+                dropdown {
+                  right: 20px;
+                  //position: fixed;
+                  //align-content: right;
+                  display: inline-block;
+                  height: 10px;
+                  width: 10px;
+                }
+  
+                .dropdown-content {
+                  display: none;
+                  position: absolute;
+                  background-color: #f1f1f1;
+                  min-width: 160px;
+                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                  z-index: 1;
+                }
+  
+                .dropdown-content a {
+                  color: black;
+                  padding: 12px 16px;
+                  text-decoration: none;
+                  display: block;
+                }
+  
+                .dropdown-content a:hover {
+                  //background-color: #ddd;
+                  cursor: pointer;
+                }
+  
+                .dropdown:hover .dropdown-content {
+                  display: block;
+                }
+  
+                .dropdown:hover .dropbtn {
+                  //background-color: #1f7281;
+                }
               }
 
-              img.dropbtn {
-                background-color: transparent;
-                color: white;
-                margin: 0;
-                padding: 0;
-                border: none;
-                height: 20px;
-                width: 20px;
-                //margin: 0 -20px 0 -20px;
-              }
-
-              dropdown {
-                right: 20px;
-                //position: fixed;
-                //align-content: right;
-                display: inline-block;
-                height: 10px;
-                width: 10px;
-              }
-
-              .dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: #f1f1f1;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                z-index: 1;
-              }
-
-              .dropdown-content a {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-              }
-
-              .dropdown-content a:hover {
-                //background-color: #ddd;
-                cursor: pointer;
-              }
-
-              .dropdown:hover .dropdown-content {
-                display: block;
-              }
-
-              .dropdown:hover .dropbtn {
-                //background-color: #1f7281;
-              }
+              
             }
           }
 
