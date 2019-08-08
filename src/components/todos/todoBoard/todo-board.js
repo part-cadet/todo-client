@@ -29,7 +29,7 @@ export class TodoBoard {
 
   getTasksOfTodo() {
     console.log('reached ');
-
+    this.todoboard.tasks = [];
     this.httpClient.fetch(`todo/tasksof/${this.todoboard.id}`)
       .then(response => (response.json()))
       .then(data => {

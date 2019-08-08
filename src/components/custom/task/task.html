@@ -13,21 +13,18 @@
 <!--    </div>-->
 
     <div class="taskItem">
-      <img src="../../../assets/pictures/img_avatar.png" alt="img_avatar1">
-    </div>
-
-    <div class="taskItem">
-      <div class="dropdown">
-        <img class="dropbtn" src="../../../assets/pictures/menu.png">
-        <div class="dropdown-content">
-<!--          <a repeat.for="board of boards" click.delegate="changeDisplayBoard(board.id)">${board.title}</a>-->
-          <a>Edit</a>
-          <a click.delegate="removeTask()">Delete</a>
+      <div class="img-menu">
+        <img src="../../../assets/pictures/img_avatar.png" alt="img_avatar1">
+        <div class="dropdown">
+          <img class="dropbtn" src="../../../assets/pictures/menu.png">
+          <div class="dropdown-content">
+    <!--          <a repeat.for="board of boards" click.delegate="changeDisplayBoard(board.id)">${board.title}</a>-->
+            <a>Edit</a>
+            <a click.delegate="removeTask()">Delete</a>
+          </div>
         </div>
       </div>
     </div>
-
-
 
   </div>
   <hr>

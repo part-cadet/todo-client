@@ -1,8 +1,11 @@
 <template>
   <form submit.trigger="addTask()">
     <div class="form-group">
-      <input type="text" name="task" placeholder="Enter task here" value.bind="newTaskDesc & validate">
-      <input type="submit" value="+">
+      <div class="inputtaskform">
+        <input type="text" name="task" placeholder="Enter task here" value.bind="newTaskDesc & validate">
+        <input type="submit" value="+">
+      </div>
     </div>
   </form>
+
 </template>
