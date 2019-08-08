@@ -6,7 +6,7 @@ import { inject } from 'aurelia-framework';
 import { ValidationControllerFactory, ValidationRules } from 'aurelia-validation';
 import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 import {
-  HttpClient , json
+  HttpClient, json
 } from 'aurelia-fetch-client';
 
 @inject(ValidationControllerFactory, HttpClient)
@@ -29,7 +29,7 @@ export class TaskAddBtn {
 
     addTask() {
       console.log('todoid is' + this.todoid);
-      
+
       this.controller.validate()
         .then(result => {
           if (result.valid) {

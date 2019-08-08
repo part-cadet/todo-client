@@ -14,7 +14,7 @@
 
       <hr>
 
-      <task repeat.for="task of todoboard.tasks" task.bind="task"></task>
+      <task repeat.for="task of todoboard.tasks" task.bind="task" refreshtodoboard.call="getTasksOfTodo()"></task>
 
     </div>
 

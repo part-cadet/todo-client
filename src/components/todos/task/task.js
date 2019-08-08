@@ -18,12 +18,12 @@ export class Task {
 
 
   updateTask(value) {
-    console.log("task id "+this.task.id);
-    
+    console.log('task id ' + this.task.id);
+
     this.httpClient.fetch(`task/${this.task.id}`, {
       method: 'PUT',
       body: json({
-        description: "updated",
+        description: 'updated',
         done: value
       })
     })
@@ -36,6 +36,6 @@ export class Task {
 
 
   logchange(value) {
-    console.log("here is the value"+value);
+    console.log('here is the value' + value);
   }
 }

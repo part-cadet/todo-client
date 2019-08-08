@@ -1,13 +1,15 @@
 import { TodoBoard } from '../../../models/todos/todo-board-model';
 import { bindable } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
+import { Router } from 'aurelia-router';
 import { inject } from 'aurelia-framework';
 
-@inject(HttpClient)
+@inject(HttpClient, Router)
 export class InfoBoard {
   @bindable infoboard;
-  constructor(httpClient) {
+  constructor(httpClient, router) {
     this.httpClient = httpClient;
+    this.router = router;
   }
 
   attached() {
@@ -48,5 +50,9 @@ export class InfoBoard {
       .then(data => {
         this.infoboard.memberPictures = data.result.map(element => require(`../../../assets/pictures/${element.profile_pic}.png`));
       });
+  }
+
+  navigateToTodoBoard() {
+    this.router.navigate(`/todos?boardID=${this.infoboard.id}`);
   }
 }

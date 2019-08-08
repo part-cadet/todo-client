@@ -11,6 +11,7 @@ import {
 @inject(HttpClient)
 export class Task {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) task;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) refreshtodoboard;
 
   constructor(httpClient) {
     this.httpClient = httpClient;
@@ -18,7 +19,7 @@ export class Task {
 
 
   updateTask(value) {
-    console.log("task id "+this.task.id);
+    console.log('task id ' + this.task.id);
     this.httpClient.fetch(`tasks/${this.task.id}`, {
       method: 'PUT',
       body: json({
@@ -26,15 +27,25 @@ export class Task {
         done: value
       })
     })
-
       .then(response => response.json())
       .then(data => {
         console.log(data);
       });
   }
 
+  removeTask() {
+    this.httpClient.fetch(`tasks/${this.task.id}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.refreshtodoboard();
+        console.log(data);
+      });
+  }
+
 
   logchange(value) {
-    console.log("here is the value" + value);
+    console.log('here is the value' + value);
   }
 }

@@ -13,7 +13,7 @@
           </div>
 
           <div class="dropdown">
-            <button class="dropbtn">Boards</button>
+            <button class="dropbtn">${displayBoardTitle}</button>
             <div class="dropdown-content">
               <a repeat.for="board of boards" click.delegate="changeDisplayBoard(board.id)">${board.title}</a>
             </div>
@@ -29,22 +29,20 @@
           <div class="todoBox plus white" if.bind="!show">
 
 
-
             <form submit.delegate="submit()">
               <div class="form-group">
 
                 <input class="titleInput" type="text" name="task" placeholder="Enter todo title here" autofocus
-                  value.bind="newTodoTitle & validate">
+                       value.bind="newTodoTitle & validate">
 
               </div>
-        
+
               <button type="submit" class="submitbtn">Submit</button>
 
             </form>
 
 
           </div>
-
 
 
         </div>
