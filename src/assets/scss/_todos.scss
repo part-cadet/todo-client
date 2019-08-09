@@ -246,6 +246,36 @@ $primaryColor: cadetblue;
                 overflow: hidden;
               }
 
+              form {
+                input[type=text] {
+                  margin-left: 5px;
+                  width: 120px;
+                  border: none;
+                  border-bottom: 1px solid #8c8b8b;
+                  font-size: 17px;
+
+                  &:focus {
+                    outline: none;
+                  }
+                }
+              }
+
+              .form-group.has-error {
+
+                input[type=text] {
+                  border-bottom: 1px solid red;
+                  margin-bottom: 3px;
+                }
+  
+                span {
+                  // position: absolute;
+                  box-sizing: border-box;
+                  order: -1;
+                  color: red;
+                  font-size: 10px;
+                }
+              }
+
               .img-menu {
                 display: flex;
                 justify-content: flex-end;
