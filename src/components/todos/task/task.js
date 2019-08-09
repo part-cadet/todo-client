@@ -11,11 +11,11 @@ import {
 @inject(HttpClient)
 export class Task {
   @bindable task
+  // onEditMode
 
   constructor(httpClient) {
     this.httpClient = this.httpClient;
   }
-
 
   updateTask(value) {
     console.log('task id ' + this.task.id);

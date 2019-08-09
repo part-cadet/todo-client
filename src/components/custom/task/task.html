@@ -2,15 +2,14 @@
   <div class="taskContainer">
 
     <div class="taskItem">
-      <input type="checkbox" checked.bind="task.done" change.delegate="updateTask($event.target.checked)">
-      <label>${task.description}</label>
+      <input type="checkbox" checked.bind="task.done" change.delegate="updateTaskDone($event.target.checked)">
+      <label show.bind="!onEditMode">${task.description}</label>
+      <div class="form-group">
+        <form show.bind="onEditMode" submit.trigger="updateTaskDesc()">
+          <input type="text" value.bind="editTaskDesc & validate" autofocus>
+        </form>
+      </div>
     </div>
-
-<!--    <div class="taskItem">-->
-<!--      <div class="deleteBtn">-->
-<!--        <img src="../../../assets/pictures/delete.svg" alt="deleteBtn" click.delegate="removeTask()">-->
-<!--      </div>-->
-<!--    </div>-->
 
     <div class="taskItem">
       <div class="img-menu">
@@ -18,8 +17,7 @@
         <div class="dropdown">
           <img class="dropbtn" src="../../../assets/pictures/menu.png">
           <div class="dropdown-content">
-    <!--          <a repeat.for="board of boards" click.delegate="changeDisplayBoard(board.id)">${board.title}</a>-->
-            <a>Edit</a>
+            <a click.delegate="toggleEditMode('enter')">Edit</a>
             <a click.delegate="removeTask()">Delete</a>
           </div>
         </div>
