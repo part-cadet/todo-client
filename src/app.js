@@ -38,14 +38,7 @@ export class App {
 
     config.map([
       {
-        route: ['', 'auth' ],
-        name: 'dashboard',
-        moduleId: PLATFORM.moduleName('./components/auth/auth'),
-        nav: true,
-        title: 'Dashboard'
-      },
-      {
-        route: ['dashboard' ],
+        route: ['', 'dashboard' ],
         name: 'dashboard',
         moduleId: PLATFORM.moduleName('./components/dashboard/dashboard'),
         nav: true,
@@ -64,6 +57,13 @@ export class App {
         moduleId: PLATFORM.moduleName('./components/todos/todos'),
         nav: true,
         title: 'Todos'
+      },
+      {
+        route: ['auth' ],
+        name: 'dashboard',
+        moduleId: PLATFORM.moduleName('./components/auth/auth'),
+        nav: true,
+        title: 'Auth'
       }
     ]);
 
