@@ -29,6 +29,7 @@ export function configure(aurelia) {
 
   aurelia.start().then(() => {
     const auth = aurelia.container.get(AuthService);
-    aurelia.setRoot(PLATFORM.moduleName('app'));
+    const root = auth.isAuthenticated() ? PLATFORM.moduleName('app') : PLATFORM.moduleName('auth');
+    aurelia.setRoot(root);
   });
 }
