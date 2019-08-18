@@ -57,13 +57,6 @@ export class App {
         moduleId: PLATFORM.moduleName('./components/todos/todos'),
         nav: true,
         title: 'Todos'
-      },
-      {
-        route: ['auth' ],
-        name: 'dashboard',
-        moduleId: PLATFORM.moduleName('./components/auth/auth'),
-        nav: true,
-        title: 'Auth'
       }
     ]);
 
