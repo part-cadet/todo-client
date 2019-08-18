@@ -32,6 +32,20 @@ export class Auth {
   }
 }
 
+ValidationRules.customRule(
+  'matchesProperty',
+  (value, obj, otherPropertyName) => 
+    value === null
+    || value === undefined
+    || value === ''
+    || obj[otherPropertyName] === null
+    || obj[otherPropertyName] === undefined
+    || obj[otherPropertyName] === ''
+    || value === obj[otherPropertyName],
+  '${$displayName} must match ${$getDisplayName($config.otherPropertyName)}',
+  otherPropertyName => ({ otherPropertyName })
+);
+
 ValidationRules
   .ensure('username')
   .displayName('User name')
@@ -43,6 +57,7 @@ ValidationRules
   .withMessage('\${$displayName} can\'t be blank.')
   .ensure('passwordRetyped')
   .displayName('Password confirmation')
+  .satisfiesRule('matchesProperty', 'password')
   .required()
   .withMessage('\${$displayName} can\'t be blank.')
   .on(Auth);
