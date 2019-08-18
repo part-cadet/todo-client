@@ -1,4 +1,4 @@
-import {
+ import {
   Aurelia,
   inject
 } from 'aurelia-framework';
@@ -61,6 +61,29 @@ export default class AuthService {
 
         // .. and set root to app.
         this.app.setRoot('app');
+      });
+  }
+
+  signup(user, passwd) {
+    this.httpClient.fetch('signup', {
+      method: 'POST',
+      body: json({
+        username: user,
+        password: passwd
+      })
+    })
+      .then((response) => {
+        console.log(response);
+        return response.content;
+      })
+      .then((session) => {
+        // Save to localStorage
+        localStorage[config.tokenName] = JSON.stringify(session);
+
+        // .. and to the session object
+        this.session = session;
+
+        // .. and set root to app.
       });
   }
 

@@ -9,7 +9,7 @@ import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 export class AddMemberBtn {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) members;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) boardid;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) refreshmembers;
+  // @bindable({ defaultBindingMode: bindingMode.twoWay }) refreshmembers;
   newMember = '';
   showInput = false;
 

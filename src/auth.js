@@ -27,6 +27,17 @@ export class Auth {
       });
   }
 
+  signup() {
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          this.authService.signup(this.username, this.password);
+        } else {
+          console.log(result);
+        }
+      });
+  }
+
   toggle() {
     this.show = !this.show;
   }

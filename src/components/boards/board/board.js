@@ -1,6 +1,6 @@
 import {bindable} from 'aurelia-framework';
 //import { TodoBoard } from '../../../models/todos/todo-board-model';
-import { HttpClient } from 'aurelia-fetch-client';
+import {HttpClient} from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
