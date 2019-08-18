@@ -27,7 +27,7 @@ body{
     display: flex;
     justify-content: center;
 
-    input[type=text] {
+    input[type=text], input[type=password]{
       box-sizing: border-box;
       margin-top: 20px;
       width: 100%;

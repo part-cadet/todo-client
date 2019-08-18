@@ -20,18 +20,49 @@ export class Auth {
     this.controller.validate()
       .then(result => {
         if (result.valid) {
-          this.authService.login(this.username, this.password);
+          this.authService.login(this.username, this.password)
+            .then(response => {
+              console.log('here async');
+              console.log(response);
+              this.username = '';
+              this.password = '';
+              this.passwordRetyped = '';
+              this.toggle();
+            })
+            .catch(e => {
+              console.log('here async error');
+              console.log(e);
+              this.username = '';
+              this.password = '';
+              this.passwordRetyped = '';
+            });
         } else {
           console.log(result);
         }
       });
   }
 
+
   signup() {
     this.controller.validate()
       .then(result => {
         if (result.valid) {
-          this.authService.signup(this.username, this.password);
+          this.authService.signup(this.username, this.password)
+            .then(response => {
+              console.log('here async');
+              console.log(response);
+              this.username = '';
+              this.password = '';
+              this.passwordRetyped = '';
+              this.toggle();
+            })
+            .catch(e => {
+              console.log('here async error');
+              console.log(e);
+              this.username = '';
+              this.password = '';
+              this.passwordRetyped = '';
+            });
         } else {
           console.log(result);
         }
@@ -45,7 +76,7 @@ export class Auth {
 
 ValidationRules.customRule(
   'matchesProperty',
-  (value, obj, otherPropertyName) => 
+  (value, obj, otherPropertyName) =>
     value === null
     || value === undefined
     || value === ''
