@@ -28,8 +28,10 @@ export default class AuthService {
            }
          })
          .withInterceptor({
-           request(request) {
-             return request;
+           request(message) {
+             console.log(message);
+             message.headers.append('Authorization', `Bearer ${localStorage.getItem('userToken')}` );
+             return message;
            }
          });
      });
