@@ -29,7 +29,7 @@ export class Auth {
               this.username = '';
               this.password = '';
               this.passwordRetyped = '';
-              this.toggle();
+              // this.toggle();
             })
             .catch(e => {
               console.log('here async error');
