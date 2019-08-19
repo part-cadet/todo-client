@@ -1,12 +1,8 @@
-import {
-  Aurelia,
-  inject
-} from 'aurelia-framework';
-import {
-  HttpClient,
-  json
-} from 'aurelia-fetch-client';
+import { Aurelia, inject } from 'aurelia-framework';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import config from './config';
+import { crypto } from 'crypto';
+
 // import { json } from '../../../node_modules/aurelia-fetch-client/dist/aurelia-fetch-client';
 const PORT = 3000;
 
@@ -48,11 +44,9 @@ export default class AuthService {
          username: user,
          password: passwd
        })
-     })
-       .then((result) => {
-         this.app.setRoot('app');
-       });
+     });
      const data = await response.json();
+     localStorage.setItem('userToken', data.token);
      return data;
    }
 
@@ -69,19 +63,13 @@ export default class AuthService {
    }
 
    logout() {
-     // Clear from localStorage
-     localStorage[config.tokenName] = null;
-
-     // .. and from the session object
-     this.session = null;
-
-     // .. and set root to login.
+     localStorage.clear();
      this.app.setRoot('auth');
    }
 
    isAuthenticated() {
-     console.log('is here');
-     return this.session !== null;
+     const token = localStorage.getItem('userToken');
+     return token !== null;
    }
 
    can(permission) {

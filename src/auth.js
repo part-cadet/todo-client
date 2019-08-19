@@ -1,19 +1,20 @@
 import AuthService from './components/auth/AuthService';
 import { ValidationControllerFactory, ValidationRules } from 'aurelia-validation';
 import { BootstrapFormRenderer } from './components/bootstrap-form-renderer';
-import { inject } from 'aurelia-framework';
+import { Aurelia, inject } from 'aurelia-framework';
 
-@inject(AuthService, ValidationControllerFactory)
+@inject(AuthService, ValidationControllerFactory, Aurelia)
 export class Auth {
   show = true;
   username = '';
   password = '';
   passwordRetyped = '';
 
-  constructor(authService, controllerFactory) {
+  constructor(authService, controllerFactory, aurelia) {
     this.authService = authService;
     this.controller = controllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
+    this.app = aurelia;
   }
 
   login() {
@@ -24,6 +25,7 @@ export class Auth {
             .then(response => {
               console.log('here async');
               console.log(response);
+              this.app.setRoot('app');
               this.username = '';
               this.password = '';
               this.passwordRetyped = '';
