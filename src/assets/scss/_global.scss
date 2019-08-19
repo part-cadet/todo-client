@@ -28,6 +28,11 @@ form{
   margin:0px;
   
 }
+
+
+
+
+
 .bg{
     
 
@@ -140,6 +145,7 @@ form{
 
 .tab {
   display: flex;
+  justify-content: space-between;
   overflow: hidden;
   border-bottom: 1px solid #ccc;
   //background-color: transparent;
@@ -154,7 +160,30 @@ form{
 
 /* Style the buttons inside the tab */
 .tab {
-    button{
+
+  .logout{
+    width: 120px;
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+
+        &:hover{
+          background-color: $primaryColor;
+          color: white;
+          transition: 0.2s;
+      }
+      
+  }
+
+  
+
+
+    .navbutton{
         width: 120px;
         background-color: inherit;
         float: left;
@@ -169,7 +198,7 @@ form{
 
 /* Change background color of buttons on hover */
 .tab {
-    button:hover{
+    .navbutton:hover{
         background-color: $primaryColor;
         color: white;
         transition: 0.2s;
