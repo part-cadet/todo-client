@@ -26,8 +26,11 @@ export class App {
             return request;
           },
           responseError(response) {
-            console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
-            authService.logout();
+            if (response.status === 401) {
+              console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
+              authService.logout();
+            }
+            return response;
           }
         });
     });
