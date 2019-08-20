@@ -10,9 +10,7 @@ export class App {
   constructor(httpClient, authService) {
     this.httpClient = httpClient;
     this.authService = authService;
-  }
 
-  attached() {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
@@ -26,6 +24,10 @@ export class App {
         .withInterceptor({
           request(request) {
             return request;
+          },
+          responseError(response) {
+            console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
+            authService.logout();
           }
         });
     });
