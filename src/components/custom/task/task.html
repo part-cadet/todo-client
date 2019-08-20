@@ -6,14 +6,14 @@
       <label show.bind="!onEditMode">${task.description}</label>
       <div class="form-group">
         <form show.bind="onEditMode" submit.trigger="updateTaskDesc()">
-          <input type="text" value.bind="editTaskDesc & validate" autofocus>
+          <input type="text" value.bind="editTaskDesc & validate" autofocus blur.trigger="updateTaskDesc()">
         </form>
       </div>
     </div>
 
     <div class="taskItem">
       <div class="img-menu">
-        <img src="../../../assets/pictures/img_avatar.png" alt="img_avatar1">
+        <img src.bind="task.assigneePic" alt="img">
         <div class="dropdown">
           <img class="dropbtn" src="../../../assets/pictures/menu.png">
           <div class="dropdown-content">

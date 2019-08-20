@@ -4,9 +4,9 @@ export class Task {
   todo_id;
   done;
   assignee;
-  constructor(description, assignee) {
-    this.description = description;
-    this.assignee = assignee;
+  assigneePic;
+  constructor() {
     this.done = false;
+    this.assigneePic = '';
   }
 }
