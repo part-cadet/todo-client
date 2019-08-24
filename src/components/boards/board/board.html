@@ -1,6 +1,7 @@
 <template>
   <!-- <require from="./member/member"></require> -->
   <require from="../../custom/board-add-member-btn/add-member-btn"></require>
+  <require from="../../custom/board-member/board-member"></require>
 
   <div class="boards">
     <div class="boardsOwnerAndName ">
@@ -16,9 +17,11 @@
     <div class="innerBoard">
       <div class="membersOfBoard">
         <div class="headOfMember">Members</div>
-        <ul>
-          <li repeat.for="member of board.members" board.bind="member">${member}</li>
-        </ul>
+        <!-- <!-- <ul> -->
+          <div class="members">
+            <board-member repeat.for="member of board.members" member.bind="member" board.bind="board" refreshmembers.call="getMembers()"></board-member>
+          </div>
+        <!-- </ul> -->
       </div>
 
       <add-member-btn members.bind="board.members" boardid.bind="board.id" refreshmembers.call="getMembers()"></add-member-btn>

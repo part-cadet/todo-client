@@ -257,6 +257,7 @@ $primaryColor: cadetblue;
         .membersOfBoard {
           font-size: 20px;
           margin-top: 0px;
+          
 
           .headOfMember {
 
@@ -268,30 +269,55 @@ $primaryColor: cadetblue;
 
           }
 
-
-          ul {
-            padding: 0px;
-            margin-top: 0px;
-            font-size: 13px;
-            height: 90px;
-            color: rgb(88, 86, 86);
-            list-style: none;
+          .members {
+            display: flex;
+            flex-direction: column;
             overflow: auto;
+            height: 90px;
             $colorback: rgb(235, 232, 232);
             $colorToolBar: white;
             @include onHoverScroll($colorback, $colorToolBar);
+            margin-bottom: 10px;
 
+            board-member {
+              display: flex;
+              justify-content: space-between;
+
+              p {
+                font-size: 13px;
+              }
+
+              button {
+                background-color: transparent;
+                border: none; 
+              }
+            }
           }
 
-          li::before {
-            content: "\2022";
-            color: $primaryColor;
-            font-weight: bold;
-            // font-size: 27px;
-            display: inline-block;
-            width: 1em;
-            margin-left: 0em
-          }
+
+          // ul {
+          //   padding: 0px;
+          //   margin-top: 0px;
+          //   font-size: 13px;
+          //   height: 90px;
+          //   color: rgb(88, 86, 86);
+          //   list-style: none;
+          //   overflow: auto;
+          //   $colorback: rgb(235, 232, 232);
+          //   $colorToolBar: white;
+          //   @include onHoverScroll($colorback, $colorToolBar);
+
+          // }
+
+          // li::before {
+          //   content: "\2022";
+          //   color: $primaryColor;
+          //   font-weight: bold;
+          //   // font-size: 27px;
+          //   display: inline-block;
+          //   width: 1em;
+          //   margin-left: 0em
+          // }
         }
 
         //end member 
@@ -299,6 +325,7 @@ $primaryColor: cadetblue;
         add-member-btn {
           box-sizing: border-box;
           display: flex;
+
           // margin-bottom: 20px;
           .form-group {
             box-sizing: border-box;
