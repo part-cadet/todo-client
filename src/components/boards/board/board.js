@@ -1,11 +1,13 @@
-import {bindable} from 'aurelia-framework';
+import {bindable, bindingMode} from 'aurelia-framework';
 //import { TodoBoard } from '../../../models/todos/todo-board-model';
 import {HttpClient} from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
 export class Board {
-  @bindable board;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) board;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) refreshboards;
+
   constructor(httpClient) {
     this.httpClient = httpClient;
   }
@@ -30,12 +32,13 @@ export class Board {
       });
   }
   removeBoard() {
+    console.log('deleting');
     this.httpClient.fetch(`boards/${this.board.id}`, {
       method: 'DELETE'
     })
       .then(response => response.json())
       .then(data => {
-        this.refreshtodoboard();
+        this.refreshboards();
       });
   }
 }
