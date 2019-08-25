@@ -3,6 +3,8 @@
 import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import environment from './environment';
+import AuthService from './components/auth/AuthService';
+
 import { PLATFORM } from 'aurelia-pal';
 
 export function configure(aurelia) {
@@ -25,5 +27,9 @@ export function configure(aurelia) {
   //Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-html-import-template-loader'));
 
-  aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
+  aurelia.start().then(() => {
+    const auth = aurelia.container.get(AuthService);
+    const root = auth.isAuthenticated() ? PLATFORM.moduleName('app') : PLATFORM.moduleName('auth');
+    aurelia.setRoot(root);
+  });
 }

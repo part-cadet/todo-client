@@ -1,15 +1,16 @@
 import { PLATFORM } from 'aurelia-pal';
 import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
+import AuthService  from './components/auth/AuthService';
+
 const PORT = 3000;
 
-@inject(HttpClient)
+@inject(HttpClient, AuthService)
 export class App {
-  constructor(httpClient) {
+  constructor(httpClient, authService) {
     this.httpClient = httpClient;
-  }
+    this.authService = authService;
 
-  attached() {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
@@ -23,6 +24,13 @@ export class App {
         .withInterceptor({
           request(request) {
             return request;
+          },
+          responseError(response) {
+            if (response.status === 401) {
+              console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
+              authService.logout();
+            }
+            return response;
           }
         });
     });
@@ -66,5 +74,9 @@ export class App {
 
   clickHandler(hrefFromView) {
     window.location.href = hrefFromView;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

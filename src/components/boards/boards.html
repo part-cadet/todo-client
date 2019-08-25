@@ -8,7 +8,7 @@
           <div class="boardBox2">
 
 
-            <board repeat.for="board of boards" board.bind="board"></board>
+            <board repeat.for="board of boards" board.bind="board" refreshboards.call="getBoards()"></board>
 
             <button class="finalButton" if.bind="show" click.delegate="toggle()">+</button>
 

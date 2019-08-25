@@ -41,6 +41,16 @@ $primaryColor: cadetblue;
       border-radius: 5px;
       background-color: white;
 
+      &:hover {
+        .boardsOwnerAndName {
+          .tools {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+          }
+        }
+      }
+
       @include breakpoint(medium) {
         min-width: 700px;
       }
@@ -151,6 +161,13 @@ $primaryColor: cadetblue;
 
         }
 
+        input {
+          border: none;
+          border-bottom: 1px solid gray;
+          font-size: 25px;
+          color: cadetblue;
+        }
+
         .listOwner {
           // display: flex;
           // justify-content: center;
@@ -214,9 +231,34 @@ $primaryColor: cadetblue;
             margin-left: 0em
           }
 
+          input {
+            border: none;
+            border-bottom: 1px solid gray;
+            font-size: 13px;
+            color: black;
+          }
+
         }
 
+        .tools {
+          display: none;
+          img {
+            // display: none;
+            cursor: pointer;
+            outline: none;
+            margin-right: 5px;
 
+            &.delete {
+              height: 25px;
+              width: 25px;
+            }
+
+            &.edit {
+              height: 18px;
+              width: 18px;
+            }
+          }
+        }
 
 
 
@@ -257,6 +299,7 @@ $primaryColor: cadetblue;
         .membersOfBoard {
           font-size: 20px;
           margin-top: 0px;
+          
 
           .headOfMember {
 
@@ -268,30 +311,67 @@ $primaryColor: cadetblue;
 
           }
 
-
-          ul {
-            padding: 0px;
-            margin-top: 0px;
-            font-size: 13px;
-            height: 90px;
-            color: rgb(88, 86, 86);
-            list-style: none;
+          .members {
+            display: flex;
+            flex-direction: column;
             overflow: auto;
+            height: 90px;
             $colorback: rgb(235, 232, 232);
             $colorToolBar: white;
             @include onHoverScroll($colorback, $colorToolBar);
+            margin-bottom: 10px;
 
+            board-member {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+
+              p {
+                margin: 5px 0 5px 0;
+                font-size: 13px;
+              }
+
+              img {
+                display: none;
+                height: 15px;
+                width: 15px;
+                margin-left: 5px; 
+                cursor: pointer;
+                outline: none;
+              }
+
+              &:hover {
+                img {
+                  display: block;
+                }
+              }
+            }
           }
 
-          li::before {
-            content: "\2022";
-            color: $primaryColor;
-            font-weight: bold;
-            // font-size: 27px;
-            display: inline-block;
-            width: 1em;
-            margin-left: 0em
-          }
+
+          // ul {
+          //   padding: 0px;
+          //   margin-top: 0px;
+          //   font-size: 13px;
+          //   height: 90px;
+          //   color: rgb(88, 86, 86);
+          //   list-style: none;
+          //   overflow: auto;
+          //   $colorback: rgb(235, 232, 232);
+          //   $colorToolBar: white;
+          //   @include onHoverScroll($colorback, $colorToolBar);
+
+          // }
+
+          // li::before {
+          //   content: "\2022";
+          //   color: $primaryColor;
+          //   font-weight: bold;
+          //   // font-size: 27px;
+          //   display: inline-block;
+          //   width: 1em;
+          //   margin-left: 0em
+          // }
         }
 
         //end member 
@@ -299,6 +379,7 @@ $primaryColor: cadetblue;
         add-member-btn {
           box-sizing: border-box;
           display: flex;
+
           // margin-bottom: 20px;
           .form-group {
             box-sizing: border-box;

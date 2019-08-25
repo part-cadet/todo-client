@@ -18,6 +18,14 @@ export class Task {
     this.controller.addRenderer(new BootstrapFormRenderer());
   }
 
+  attached() {
+    this.httpClient.fetch(`tasks/assignee/${this.task.assignee}`)
+      .then(response => (response.json()))
+      .then(data => {
+        this.task.assigneePic = require(`../../../assets/pictures/${data.result[0].profile_pic}.png`);
+      });
+  }
+
   updateTaskDone(value) {
     console.log('task id ' + this.task.id);
     this.httpClient.fetch(`tasks/${this.task.id}`, {
