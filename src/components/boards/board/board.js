@@ -29,5 +29,14 @@ export class Board {
         this.board.members = data.result.map(element => element.name);
       });
   }
+  removeBoard() {
+    this.httpClient.fetch(`boards/${this.board.id}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.refreshtodoboard();
+      });
+  }
 }
 
