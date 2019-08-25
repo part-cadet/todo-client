@@ -5,16 +5,18 @@
 
   <div class="boards">
     <div class="boardsOwnerAndName ">
-      <div class="numberOfBoard">${board.title}</div>
+      <div class="numberOfBoard" show.bind="!onEditMode">${board.title}</div>
+      <input type="text" show.bind="onEditMode" value.bind="editTitle" blur.trigger="updateBoard()">
       <div class="listOwner">
         <h6>Owner</h6>
         <ul>
-          <li>${board.owner}</li>
+          <li show.bind="!onEditMode">${board.owner}</li>
+          <input type="text" show.bind="onEditMode" value.bind="editOwner" blur.trigger="updateBoard()">
         </ul>
       </div>
       <div class="tools">
         <img class="delete" click.delegate="removeBoard()" src="../../../assets/pictures/cross.png">
-        <img class="edit" src="../../../assets/pictures/edit.png">
+        <img class="edit" src="../../../assets/pictures/edit.png" click.delegate="toggleEditMode('enter')">
       </div>
     </div>
 
