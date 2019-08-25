@@ -6,17 +6,20 @@
   <div class="boards">
     <div class="boardsOwnerAndName ">
       <div class="numberOfBoard" show.bind="!onEditMode">${board.title}</div>
-      <input type="text" show.bind="onEditMode" value.bind="editTitle" blur.trigger="updateBoard()">
+      <input type="text" show.bind="onEditMode" value.bind="editTitle">
       <div class="listOwner">
         <h6>Owner</h6>
         <ul>
           <li show.bind="!onEditMode">${board.owner}</li>
-          <input type="text" show.bind="onEditMode" value.bind="editOwner" blur.trigger="updateBoard()">
+          <li show.bind="onEditMode">
+            <input type="text" value.bind="editOwner">
+          </li>
         </ul>
       </div>
       <div class="tools">
         <img class="delete" click.delegate="removeBoard()" src="../../../assets/pictures/cross.png">
-        <img class="edit" src="../../../assets/pictures/edit.png" click.delegate="toggleEditMode('enter')">
+        <img class="edit" src="../../../assets/pictures/edit.png" show.bind="!onEditMode" click.delegate="toggleEditMode('enter')">
+        <img class="edit" src="../../../assets/pictures/check.png" show.bind="onEditMode" click.delegate="updateBoard()">
       </div>
     </div>
 

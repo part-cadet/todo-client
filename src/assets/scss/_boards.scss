@@ -161,6 +161,13 @@ $primaryColor: cadetblue;
 
         }
 
+        input {
+          border: none;
+          border-bottom: 1px solid gray;
+          font-size: 25px;
+          color: cadetblue;
+        }
+
         .listOwner {
           // display: flex;
           // justify-content: center;
@@ -222,6 +229,13 @@ $primaryColor: cadetblue;
             display: inline-block;
             width: 1em;
             margin-left: 0em
+          }
+
+          input {
+            border: none;
+            border-bottom: 1px solid gray;
+            font-size: 13px;
+            color: black;
           }
 
         }
