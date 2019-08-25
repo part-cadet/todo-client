@@ -41,6 +41,16 @@ $primaryColor: cadetblue;
       border-radius: 5px;
       background-color: white;
 
+      &:hover {
+        .boardsOwnerAndName {
+          .tools {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+          }
+        }
+      }
+
       @include breakpoint(medium) {
         min-width: 700px;
       }
@@ -216,7 +226,25 @@ $primaryColor: cadetblue;
 
         }
 
+        .tools {
+          display: none;
+          img {
+            // display: none;
+            cursor: pointer;
+            outline: none;
+            margin-right: 5px;
 
+            &.delete {
+              height: 25px;
+              width: 25px;
+            }
+
+            &.edit {
+              height: 18px;
+              width: 18px;
+            }
+          }
+        }
 
 
 
@@ -281,15 +309,27 @@ $primaryColor: cadetblue;
 
             board-member {
               display: flex;
-              justify-content: space-between;
+              justify-content: flex-start;
+              align-items: center;
 
               p {
+                margin: 5px 0 5px 0;
                 font-size: 13px;
               }
 
-              button {
-                background-color: transparent;
-                border: none; 
+              img {
+                display: none;
+                height: 15px;
+                width: 15px;
+                margin-left: 5px; 
+                cursor: pointer;
+                outline: none;
+              }
+
+              &:hover {
+                img {
+                  display: block;
+                }
               }
             }
           }
