@@ -3,7 +3,7 @@
 import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import environment from './environment';
-import AuthService from './components/auth/AuthService';
+// import AuthService from './components/auth/AuthService';
 
 import { PLATFORM } from 'aurelia-pal';
 
@@ -28,8 +28,9 @@ export function configure(aurelia) {
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-html-import-template-loader'));
 
   aurelia.start().then(() => {
-    const auth = aurelia.container.get(AuthService);
-    const root = auth.isAuthenticated() ? PLATFORM.moduleName('app') : PLATFORM.moduleName('auth');
-    aurelia.setRoot(root);
+    // const auth = aurelia.container.get(AuthService);
+    // const root = auth.isAuthenticated() ? PLATFORM.moduleName('app') : PLATFORM.moduleName('auth');
+    // aurelia.setRoot(root);
+    aurelia.setRoot(PLATFORM.moduleName('app'));
   });
 }

@@ -1,15 +1,13 @@
 import { Aurelia, inject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
-import config from './config';
-import { crypto } from 'crypto';
+// import config from './config';
+// import { crypto } from 'crypto';
 
 // import { json } from '../../../node_modules/aurelia-fetch-client/dist/aurelia-fetch-client';
 const PORT = 3000;
 
  @inject(Aurelia, HttpClient)
 export default class AuthService {
-   session = null
-
    // As soon as the AuthService is created, we query local storage to
    // see if the login information has been stored. If so, we immediately
    // load it into the session object on the AuthService.
