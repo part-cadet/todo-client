@@ -41,6 +41,7 @@ export class App {
     };
     config.mapUnknownRoutes(handleUnknownRoutes);
 
+    config.addAuthorizeStep(AuthStep);
     config.map([
       {
         route: ['', 'dashboard' ],
@@ -75,5 +76,18 @@ export class App {
 
   logout() {
     this.authService.logout();
+  }
+}
+
+class AuthStep {
+  run(navigationInstruction, next) {
+    if (navigationInstruction.getAllInstructions().some(i => i.config.settings.auth)) {
+      const isLoggedIn = authService.isAuthenticated();
+      if (!isLoggedIn) {
+        return next.cancel(new Redirect(PLATFORM.moduleName('auth')));
+      }
+    }
+
+    return next();
   }
 }
