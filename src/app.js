@@ -22,9 +22,6 @@ export class App {
           }
         })
         .withInterceptor({
-          request(request) {
-            return request;
-          },
           responseError(response) {
             if (response.status === 401) {
               console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
