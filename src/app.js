@@ -3,7 +3,7 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 import AuthService  from './components/auth/AuthService';
 
-const PORT = 3000;
+const PORT = 2000;
 
 @inject(HttpClient, AuthService)
 export class App {

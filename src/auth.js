@@ -25,10 +25,12 @@ export class Auth {
             .then(response => {
               console.log('here async');
               console.log(response);
-              this.app.setRoot('app');
-              this.username = '';
-              this.password = '';
-              this.passwordRetyped = '';
+              if (response.status === 'Ok') {
+                this.app.setRoot('app');
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+              }
               // this.toggle();
             })
             .catch(e => {
