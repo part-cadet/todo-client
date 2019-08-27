@@ -38,6 +38,10 @@ export class App {
     });
   }
 
+  attached() {
+    this.username = localStorage.username;
+  }
+
   configureRouter(config, router) {
     config.title = 'Todo Web App';
 

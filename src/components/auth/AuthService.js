@@ -21,6 +21,7 @@ export default class AuthService {
      });
      const data = await response.json();
      localStorage.setItem('userToken', data.token);
+     localStorage.setItem('username', data.username);
      return data;
    }
 
