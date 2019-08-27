@@ -4,7 +4,7 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 // import { crypto } from 'crypto';
 
 // import { json } from '../../../node_modules/aurelia-fetch-client/dist/aurelia-fetch-client';
-const PORT = 3000;
+const PORT = 2000;
 
  @inject(Aurelia, HttpClient)
 export default class AuthService {
