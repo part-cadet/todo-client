@@ -74,6 +74,7 @@ $primaryColor: cadetblue;
         .img-menu {
           display: flex;
           justify-content: flex-end;
+          align-items: center;
           
           &.cadet {
             align-items: center;
@@ -297,6 +298,7 @@ $primaryColor: cadetblue;
           .taskContainer {
             display: flex;
             justify-content: space-between;
+            align-items: center;
 
             &:hover {
               .taskItem {

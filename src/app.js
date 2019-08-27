@@ -22,6 +22,11 @@ export class App {
           }
         })
         .withInterceptor({
+          request(message) {
+            console.log(message);
+            message.headers.append('Authorization', `Bearer ${localStorage.getItem('userToken')}` );
+            return message;
+          },
           responseError(response) {
             if (response.status === 401) {
               console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);

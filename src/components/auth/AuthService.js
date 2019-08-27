@@ -1,10 +1,5 @@
 import { Aurelia, inject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
-// import config from './config';
-// import { crypto } from 'crypto';
-
-// import { json } from '../../../node_modules/aurelia-fetch-client/dist/aurelia-fetch-client';
-const PORT = 2000;
 
  @inject(Aurelia, HttpClient)
 export default class AuthService {
@@ -14,27 +9,6 @@ export default class AuthService {
    constructor(aurelia, httpClient) {
      this.httpClient = httpClient;
      this.app = aurelia;
-
-     this.httpClient.configure(http => {
-       http
-         .useStandardConfiguration()
-         .withBaseUrl(`http://localhost:${PORT}/api/`)
-         .withDefaults({
-           credentials: 'same-origin',
-           headers: {
-             'X-Requested-With': 'Fetch'
-           }
-         })
-         .withInterceptor({
-           request(message) {
-             console.log(message);
-             message.headers.append('Authorization', `Bearer ${localStorage.getItem('userToken')}` );
-             return message;
-           }
-         });
-     });
-
-     // this.session = JSON.parse(localStorage[config.tokenName] || null);
    }
 
    async login(user, passwd) {
@@ -70,9 +44,5 @@ export default class AuthService {
    isAuthenticated() {
      const token = localStorage.getItem('userToken');
      return token !== null;
-   }
-
-   can(permission) {
-     return true; // why not?
    }
  }
