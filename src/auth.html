@@ -2,33 +2,43 @@
   <require from="./assets/scss/_auth.scss"></require>
 
   <form class="auth" if.bind="show" submit.trigger="login()">
-    
+
     <div class="form-group">
       <input type="text" placeholder="username" value.bind="username & validate">
     </div>
     <div class="form-group">
-        <input type="password" placeholder="password" value.bind="password & validate">
+      <input type="password" placeholder="password" value.bind="password & validate">
     </div>
-      <input type="submit">
-      <p>New here? <a href="signup" click.delegate="toggle()">Sign up now!</a></p>
-  
-    </form>
-    
-  
-    <form class="auth" if.bind="!show" submit.trigger="signup()">
-      <div class="form-group">
-        <input type="text" placeholder="username" value.bind="username & validate">
-      </div>
-      <div class="form-group">
-        <input type="password" placeholder="password" value.bind="password & validate">
-      </div>
-      <div class="form-group">
-        <input type="password" placeholder="confirm password" value.bind="passwordRetyped & validate">
-      </div>
-        <input type="submit">
-        <p>Already a member? <a href="signin" click.delegate="toggle()">Sign in!</a></p>
-  
-    </form>
+    <input type="submit">
+    <p>New here? <a href="signup" click.delegate="toggle()">Sign up now!</a></p>
+
+  </form>
+
+
+  <form class="auth" if.bind="!show" submit.trigger="signup()">
+    <div class="form-group">
+      <input type="text" placeholder="username" value.bind="username & validate">
+    </div>
+    <div class="form-group">
+      <input type="password" placeholder="password" value.bind="password & validate">
+    </div>
+    <div class="form-group">
+      <input type="password" placeholder="confirm password" value.bind="passwordRetyped & validate">
+    </div>
+    <div class="guide">
+      <p>Password should contain at least:</p>
+      <ul>
+        <li>8 characters</li>
+        <li>one lowercase character</li>
+        <li>one uppercase character</li>
+        <li>one special character</li>
+        <li>one number character</li>
+      </ul>
+    </div>
+    <input type="submit">
+    <p>Already a member? <a href="signin" click.delegate="toggle()">Sign in!</a></p>
+
+  </form>
 
 
 </template>

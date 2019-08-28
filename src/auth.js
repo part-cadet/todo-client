@@ -30,8 +30,17 @@ export class Auth {
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';
+              } else if (response.status === 'Not Found') {
+                alert('User not found');
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+              } else if (response.message === 'Password Not Verified') {
+                alert('Password entered is wrong');
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
               }
-              // this.toggle();
             })
             .catch(e => {
               console.log('here async error');
@@ -53,12 +62,19 @@ export class Auth {
         if (result.valid) {
           this.authService.signup(this.username, this.password)
             .then(response => {
-              console.log('here async');
-              console.log(response);
-              this.username = '';
-              this.password = '';
-              this.passwordRetyped = '';
-              this.toggle();
+              if (response.name === 'error') {
+                alert('Username already exists');
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+              } else {
+                console.log('here async');
+                console.log(response);
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+                this.toggle();
+              }
             })
             .catch(e => {
               console.log('here async error');

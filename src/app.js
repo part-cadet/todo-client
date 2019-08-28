@@ -37,6 +37,8 @@ export class App {
             if (response.status === 401) {
               console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
               authService.logout();
+            } else {
+              console.log(`Error: Stuatus Code: ${response.status}`);
             }
             return response;
           }
