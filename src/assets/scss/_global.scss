@@ -25,6 +25,61 @@ body {
 
 }
 
+// .page-mask {
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   top: 0;
+//   background-color: rgba(0, 0, 0, 0.6);
+// }
+
+ux-dialog-overlay {
+  &.active {
+    background-color: black;
+    opacity: .65; 
+  }
+}
+
+ai-dialog {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 40px 40px 20px 40px;
+  height: 170px;
+  background-color: white;
+  border: 1px solid rgb(204, 203, 203);
+  box-shadow: 0 5px 20px rgba(3, 27, 78, .1);
+
+  ai-dialog-body {
+    display: flex;
+    justify-content: center;
+  }
+
+  h2 {
+    // color: white;
+    margin: 0;
+  }
+
+  ai-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      width: 50px;
+      height: 30px;
+      border: none;
+      background-color: cadetblue;
+      border-radius: 5px;
+      margin-left: 10px;
+      color: white;
+    }
+  }
+}
+
 form {
   padding: 0px;
   margin: 0px;
@@ -165,7 +220,7 @@ form {
     align-items: center;
 
     p {
-      margin-right: 10px; 
+      margin-right: 10px;
     }
 
     button {

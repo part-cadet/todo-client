@@ -2,19 +2,24 @@ import { PLATFORM } from 'aurelia-pal';
 import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 import AuthService  from './components/auth/AuthService';
+import { DialogService } from 'aurelia-dialog';
+import { Prompt } from './components/dialog/prompt';
+
 
 const PORT = 2000;
 
-@inject(HttpClient, AuthService)
+@inject(HttpClient, AuthService, DialogService)
 export class App {
-  constructor(httpClient, authService) {
+  constructor(httpClient, authService, dialogService) {
     this.httpClient = httpClient;
     this.authService = authService;
+    this.dialogService = dialogService;
 
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl(`http://localhost:${PORT}/api/`)
+        // .withBaseUrl(`http://localhost:${PORT}/api/`)
+        .withBaseUrl('http://cadet.todo.partdp.ir/api/')
         .withDefaults({
           credentials: 'same-origin',
           headers: {
@@ -23,6 +28,7 @@ export class App {
         })
         .withInterceptor({
           request(message) {
+            console.log('message');
             console.log(message);
             message.headers.append('Authorization', `Bearer ${localStorage.getItem('userToken')}` );
             return message;
@@ -84,7 +90,23 @@ export class App {
   }
 
   logout() {
-    this.authService.logout();
+    this.dialogService.open({
+      viewModel: Prompt,
+      model: 'Are you sure you want to logout?',
+      overlayColor: 'black',
+      overlayOpacity: '.25',
+      lock: false
+    })
+      .whenClosed(response => {
+        console.log(response);
+        if (!response.wasCancelled) {
+          response.output = 'Accepted';
+          this.authService.logout();
+        } else {
+          response.output = 'Cancelled';
+        }
+        console.log(response.output);
+      });
   }
 }
 

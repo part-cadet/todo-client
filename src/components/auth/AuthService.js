@@ -3,9 +3,6 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 
  @inject(Aurelia, HttpClient)
 export default class AuthService {
-   // As soon as the AuthService is created, we query local storage to
-   // see if the login information has been stored. If so, we immediately
-   // load it into the session object on the AuthService.
    constructor(aurelia, httpClient) {
      this.httpClient = httpClient;
      this.app = aurelia;
