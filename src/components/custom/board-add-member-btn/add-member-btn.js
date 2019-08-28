@@ -1,4 +1,4 @@
-import {bindable, bindingMode} from 'aurelia-framework';
+import {bindable, bindingMode, observable} from 'aurelia-framework';
 import { inject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 
@@ -7,17 +7,37 @@ import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 
 @inject(ValidationControllerFactory, HttpClient)
 export class AddMemberBtn {
+  //@observable query;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) members;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) boardid;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) refreshmembers;
   newMember = '';
   showInput = false;
+  users=[];
 
   constructor(controllerFactory, httpClient) {
     this.controller = controllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
     this.httpClient = httpClient;
+    this.users = [];
   }
+
+  attached() {
+    this.httpClient.fetch('users')
+      .then(response => response.json())
+      .then(data => {
+        console.log('here');
+        console.log(data);
+
+
+        this.users = data;
+      });
+  }
+
+  get() {
+    console.log(this.users);
+  }
+
 
   addMember() {
     this.controller.validate()

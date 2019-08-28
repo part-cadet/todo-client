@@ -18,8 +18,8 @@ export class App {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        // .withBaseUrl(`http://localhost:${PORT}/api/`)
-        .withBaseUrl('http://cadet.todo.partdp.ir/api/')
+         .withBaseUrl(`http://localhost:${PORT}/api/`)
+        //.withBaseUrl('http://cadet.todo.partdp.ir/api/')
         .withDefaults({
           credentials: 'same-origin',
           headers: {
