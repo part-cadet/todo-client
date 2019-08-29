@@ -34,6 +34,7 @@ export class Board {
         this.board.members = data.result.map(element => element.name);
       });
   }
+
   removeBoard() {
     console.log('deleting');
     this.httpClient.fetch(`boards/${this.board.id}`, {
