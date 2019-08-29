@@ -52,15 +52,16 @@ export class AddMemberBtn {
             .then(response => response.json())
             .then(data => {
               console.log(data);
-              if (data.name === 'error') {
-                alert('Member does not exist in the database');
-              } else {
+              if (data.status === 'Ok') {
                 this.refreshmembers();
+              } else if (data.detail.includes('not present in table')) {
+                toastr.error('Member does not exist in the database');
+              } else if (data.detail.includes('already exists')) {
+                toastr.error('Member already exists');
               }
               this.newMember = '';
               this.showInput = !this.showInput;
             });
-          // this.members.push(this.newMember);
         } else {
           console.log(result);
         }

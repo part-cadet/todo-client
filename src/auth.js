@@ -26,18 +26,18 @@ export class Auth {
               console.log('here async');
               console.log(response);
               if (response.status === 'Ok') {
+                toastr.success('Logged in successfully!');
                 this.app.setRoot('app');
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';
               } else if (response.status === 'Not Found') {
-                alert('User not found');
+                toastr.error('User not found');
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';
               } else if (response.message === 'Password Not Verified') {
-                // alert('Password entered is wrong');
-                toastr.info('not verified');
+                toastr.error(response.message);
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';
@@ -64,7 +64,7 @@ export class Auth {
           this.authService.signup(this.username, this.password)
             .then(response => {
               if (response.name === 'error') {
-                alert('Username already exists');
+                toastr.error('Username already exists');
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';

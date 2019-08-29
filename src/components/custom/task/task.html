@@ -9,20 +9,11 @@
           <input type="text" value.bind="editTaskDesc & validate" autofocus blur.trigger="updateTaskDesc()">
         </form>
       </div>
-    </div>
-
-    <div class="taskItem">
+      
+      
       <div class="img-menu">
-        <button class="assignbtn" show.bind="task.assignee === null" click.delegate="toggleInput()">+</button>
-
-        <input list="users" name="users" if.bind="showInput" type="text" name="member" placeholder="Enter member here"
-            value.bind="newMember & validate">
-              <datalist id="users">
-            <option repeat.for="user of users">${user.name}</option>
-            </datalist>
-
-
-
+        <button class="assignbtn" show.bind="task.assignee === null && !showInput" click.delegate="toggleInput()">+</button>
+        <button class="assignbtn" show.bind="showInput" click.delegate="updateTaskAssignee()">^</button>
         <img show.bind="task.assignee !== null" src.bind="task.assigneePic" alt="img">
         <div class="dropdown">
           <img class="dropbtn" src="../../../assets/pictures/menu.png">
@@ -32,7 +23,14 @@
           </div>
         </div>
       </div>
+      
     </div>
+    
+    <input list="users" name="users" if.bind="showInput" type="text" name="member" placeholder="Enter member here"
+      value.bind="assignee & validate">
+    <datalist id="users">
+      <option repeat.for="user of users">${user.name}</option>
+    </datalist>
 
   </div>
   <hr>

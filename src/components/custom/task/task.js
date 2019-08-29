@@ -13,6 +13,7 @@ export class Task {
   editTaskDesc;
   showInput=false;
   users=[];
+  assignee = '';
 
   constructor(httpClient, controllerFactory) {
     this.httpClient = httpClient;
@@ -80,6 +81,25 @@ export class Task {
         } else {
           console.log(result);
         }
+      });
+  }
+
+  updateTaskAssignee() {
+    this.httpClient.fetch(`tasks/${this.task.id}`, {
+      method: 'PUT',
+      body: json({
+        assignee: this.assignee
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.status === 'Ok') {
+          this.refreshtodoboard();
+        } else if (data.detail.includes('not present in table')) {
+          toastr.error('Member does not exist in the database');
+        }
+        this.showInput = false;
       });
   }
 

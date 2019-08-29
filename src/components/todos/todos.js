@@ -29,7 +29,9 @@ export class Todos {
   }
 
   activate(params, routeConfig, navigationInstruction) {
-    if (params.boardID === null) {
+    console.log('activate');
+    console.log(params.boardID);
+    if (typeof params.boardID === 'undefined') {
       console.log('not redirected');
       this.notRedirected = true;
     } else {
