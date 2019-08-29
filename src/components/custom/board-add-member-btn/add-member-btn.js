@@ -51,12 +51,16 @@ export class AddMemberBtn {
           })
             .then(response => response.json())
             .then(data => {
-            // console.log(data);
-              this.refreshmembers();
+              console.log(data);
+              if (data.name === 'error') {
+                alert('Member does not exist in the database');
+              } else {
+                this.refreshmembers();
+              }
+              this.newMember = '';
+              this.showInput = !this.showInput;
             });
           // this.members.push(this.newMember);
-          this.newMember = '';
-          this.showInput = !this.showInput;
         } else {
           console.log(result);
         }
