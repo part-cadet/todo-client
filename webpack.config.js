@@ -207,7 +207,9 @@ module.exports = ({ production, server, extractCss, coverage, analyze, karma } =
     new ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'Promise': ['promise-polyfill', 'default']
+      'Promise': ['promise-polyfill', 'default'],
+      'toastr': 'toastr',
+      Popper: 'popper.js'
     }),
     new ModuleDependenciesPlugin({
       'aurelia-testing': ['./compile-spy', './view-spy']

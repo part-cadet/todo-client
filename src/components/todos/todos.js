@@ -29,7 +29,7 @@ export class Todos {
   }
 
   activate(params, routeConfig, navigationInstruction) {
-    if (params.boardID == null) {
+    if (params.boardID === null) {
       console.log('not redirected');
       this.notRedirected = true;
     } else {

@@ -3,6 +3,7 @@
 import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import environment from './environment';
+import '../node_modules/toastr/build/toastr.css';
 // import AuthService from './components/auth/AuthService';
 
 import { PLATFORM } from 'aurelia-pal';

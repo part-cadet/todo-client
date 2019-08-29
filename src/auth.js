@@ -36,7 +36,8 @@ export class Auth {
                 this.password = '';
                 this.passwordRetyped = '';
               } else if (response.message === 'Password Not Verified') {
-                alert('Password entered is wrong');
+                // alert('Password entered is wrong');
+                toastr.info('not verified');
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';
