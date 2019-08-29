@@ -26,12 +26,22 @@ export class Auth {
               console.log('here async');
               console.log(response);
               if (response.status === 'Ok') {
+                toastr.success('Logged in successfully!');
                 this.app.setRoot('app');
                 this.username = '';
                 this.password = '';
                 this.passwordRetyped = '';
+              } else if (response.status === 'Not Found') {
+                toastr.error('User not found');
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+              } else if (response.message === 'Password Not Verified') {
+                toastr.error(response.message);
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
               }
-              // this.toggle();
             })
             .catch(e => {
               console.log('here async error');
@@ -53,12 +63,19 @@ export class Auth {
         if (result.valid) {
           this.authService.signup(this.username, this.password)
             .then(response => {
-              console.log('here async');
-              console.log(response);
-              this.username = '';
-              this.password = '';
-              this.passwordRetyped = '';
-              this.toggle();
+              if (response.name === 'error') {
+                toastr.error('Username already exists');
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+              } else {
+                console.log('here async');
+                console.log(response);
+                this.username = '';
+                this.password = '';
+                this.passwordRetyped = '';
+                this.toggle();
+              }
             })
             .catch(e => {
               console.log('here async error');
@@ -99,6 +116,9 @@ ValidationRules
   .withMessage('\${$displayName} can\'t be blank.')
   .ensure('password')
   .displayName('Password')
+  .matches(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$/)
+  .withMessage('\${$displayName} doesn\'t contain mentioned characters.')
+  .minLength(8).withMessage('\${$displayName} should contain more than 8 characters.')
   .required()
   .withMessage('\${$displayName} can\'t be blank.')
   .ensure('passwordRetyped')

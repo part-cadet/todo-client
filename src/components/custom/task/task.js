@@ -11,6 +11,9 @@ export class Task {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) refreshtodoboard;
   onEditMode = false;
   editTaskDesc;
+  showInput=false;
+  users=[];
+  assignee = '';
 
   constructor(httpClient, controllerFactory) {
     this.httpClient = httpClient;
@@ -19,11 +22,29 @@ export class Task {
   }
 
   attached() {
-    this.httpClient.fetch(`tasks/assignee/${this.task.assignee}`)
-      .then(response => (response.json()))
+    if (this.task.assignee !== null) {
+      this.httpClient.fetch(`tasks/assignee/${this.task.assignee}`)
+        .then(response => (response.json()))
+        .then(data => {
+          this.task.assigneePic = require(`../../../assets/pictures/${data.result[0].profile_pic}.png`);
+        });
+    }
+
+
+    this.httpClient.fetch(`boards/allmembersof/${this.task.id}`)
+      .then(response => response.json())
       .then(data => {
-        this.task.assigneePic = require(`../../../assets/pictures/${data.result[0].profile_pic}.png`);
+        console.log('here');
+        console.log(data);
+
+
+        this.users = data.result;
+        console.log(this.users);
       });
+  }
+
+  toggleInput() {
+    this.showInput = !this.showInput;
   }
 
   updateTaskDone(value) {
@@ -60,6 +81,25 @@ export class Task {
         } else {
           console.log(result);
         }
+      });
+  }
+
+  updateTaskAssignee() {
+    this.httpClient.fetch(`tasks/${this.task.id}`, {
+      method: 'PUT',
+      body: json({
+        assignee: this.assignee
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.status === 'Ok') {
+          this.refreshtodoboard();
+        } else if (data.detail.includes('not present in table')) {
+          toastr.error('Member does not exist in the database');
+        }
+        this.showInput = false;
       });
   }
 

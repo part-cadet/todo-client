@@ -4,6 +4,7 @@ export class Board {
   title = 'New Board';
   owner = 'New Owner';
   members = [];
+  users=[];
   showInput;
   newMember='';
   constructor() {

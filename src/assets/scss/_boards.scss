@@ -4,6 +4,50 @@ $primaryColor: cadetblue;
   display: flex;
   justify-content: center;
 
+  .addbtn2 {
+    flex-grow: 0;
+    width: 190px;
+    height: 25px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    &:hover {
+      background-color: rgb(199, 199, 199);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      width: 190px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      // margin-top: 10px;
+      border-radius: 5px;
+      // z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 7px 7px;
+      text-decoration: none;
+      display: block;
+      border-radius: 5px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      cursor: pointer;
+    }
+
+    &:hover .dropdown-content {
+      display: block;
+    }
+  }
+
 
   .boardBox2 {
     width: inherit;

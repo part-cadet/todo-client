@@ -64,21 +64,29 @@ $primaryColor: cadetblue;
 
       }
 
-
-
-
-
       .todoBox {
-
-
         .img-menu {
           display: flex;
           justify-content: flex-end;
-          
+          align-items: center;
+
           &.cadet {
             align-items: center;
             background-color: cadetblue;
             border-radius: 5px;
+          }
+
+          button.assignbtn{
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            background-color: cadetblue;
+
+            outline: none;
+
+            font-size: 25px;
+            color: white;
+
           }
 
           img {
@@ -143,10 +151,6 @@ $primaryColor: cadetblue;
 
           .dropdown:hover .dropdown-content {
             display: block;
-          }
-
-          .dropdown:hover .dropbtn {
-            //background-color: #1f7281;
           }
         }
 
@@ -296,7 +300,18 @@ $primaryColor: cadetblue;
 
           .taskContainer {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+
+            input[type=text] {
+              box-sizing: border-box;
+              margin-top: 10px; 
+              width: 100%;
+              height: 30px;
+              padding: 10px;
+              border: 1px solid cadetblue;
+              border-radius: 5px;
+            }
 
             &:hover {
               .taskItem {
@@ -308,6 +323,8 @@ $primaryColor: cadetblue;
 
             .taskItem {
               display: flex;
+              width: 100%;
+              justify-content: space-between;
               // align-self: center;
               align-items: center;
 
