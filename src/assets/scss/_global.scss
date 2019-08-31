@@ -76,6 +76,14 @@ ai-dialog {
       border-radius: 5px;
       margin-left: 10px;
       color: white;
+      outline: none;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(35, 103, 105);
+        transition: 300ms all;
+      }
     }
   }
 }
