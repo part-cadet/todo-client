@@ -42,7 +42,12 @@ export class Board {
     })
       .then(response => response.json())
       .then(data => {
-        this.refreshboards();
+        console.log(data);
+        if (data.status === 'Access Denied') {
+          toastr.error(data.message);
+        } else {
+          this.refreshboards();
+        }
       });
   }
   updateBoard() {
@@ -52,15 +57,18 @@ export class Board {
     this.httpClient.fetch(`boards/${this.board.id}`, {
       method: 'PUT',
       body: json({
-        title: this.editTitle,
-        owner: this.editOwner
+        title: this.editTitle
       })
     })
       .then(response => response.json())
       .then(data => {
         console.log(data);
         this.onEditMode = false;
-        this.refreshboards();
+        if (data.status === 'Access Denied') {
+          toastr.error(data.message);
+        } else {
+          this.refreshboards();
+        }
       });
     // } else {
     //   console.log(result);
