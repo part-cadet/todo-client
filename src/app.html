@@ -3,11 +3,22 @@
 
   <div class="bg">
       <div class="tab">
-          <button repeat.for="row of router.navigation" click.delegate="clickHandler(row.href)" class="${row.isActive ? 'active' : ''}">
+
+       
+
+        <div class="navigation">
+          <button class="navbutton" repeat.for="row of router.navigation" click.delegate="clickHandler(row.href)" class="${row.isActive ? 'active' : ''}">
             ${row.title}
-          </button>
+          </button></div>
+
+          <div class="logout">
+            <p>Welcome ${username}!</p>
+            <button click.delegate="logout()">Logout</button>
+          </div>
       </ul>
-    </div>
+   
+
+  </div>
 
 
     <router-view></router-view>

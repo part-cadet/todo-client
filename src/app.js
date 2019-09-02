@@ -1,19 +1,25 @@
 import { PLATFORM } from 'aurelia-pal';
 import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
-const PORT = 3000;
+import AuthService  from './components/auth/AuthService';
+import { DialogService } from 'aurelia-dialog';
+import { Prompt } from './components/dialog/prompt';
 
-@inject(HttpClient)
+
+const PORT = 2000;
+
+@inject(HttpClient, AuthService, DialogService)
 export class App {
-  constructor(httpClient) {
+  constructor(httpClient, authService, dialogService) {
     this.httpClient = httpClient;
-  }
+    this.authService = authService;
+    this.dialogService = dialogService;
 
-  attached() {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
         .withBaseUrl(`http://localhost:${PORT}/api/`)
+        // .withBaseUrl('http://cadet.todo.partdp.ir/api/')
         .withDefaults({
           credentials: 'same-origin',
           headers: {
@@ -21,11 +27,27 @@ export class App {
           }
         })
         .withInterceptor({
-          request(request) {
-            return request;
+          request(message) {
+            console.log('message');
+            console.log(message);
+            message.headers.append('Authorization', `Bearer ${localStorage.getItem('userToken')}` );
+            return message;
+          },
+          responseError(response) {
+            if (response.status === 401) {
+              console.log(`Stuatus Code: ${response.status}, Unauthorized Access`);
+              authService.logout();
+            } else {
+              console.log(`Error: Stuatus Code: ${response.status}`);
+            }
+            return response;
           }
         });
     });
+  }
+
+  attached() {
+    this.username = localStorage.username;
   }
 
   configureRouter(config, router) {
@@ -36,6 +58,7 @@ export class App {
     };
     config.mapUnknownRoutes(handleUnknownRoutes);
 
+    config.addAuthorizeStep(AuthStep);
     config.map([
       {
         route: ['', 'dashboard' ],
@@ -66,5 +89,38 @@ export class App {
 
   clickHandler(hrefFromView) {
     window.location.href = hrefFromView;
+  }
+
+  logout() {
+    this.dialogService.open({
+      viewModel: Prompt,
+      model: 'Are you sure you want to logout?',
+      overlayColor: 'black',
+      overlayOpacity: '.25',
+      lock: false
+    })
+      .whenClosed(response => {
+        console.log(response);
+        if (!response.wasCancelled) {
+          response.output = 'Accepted';
+          this.authService.logout();
+        } else {
+          response.output = 'Cancelled';
+        }
+        console.log(response.output);
+      });
+  }
+}
+
+class AuthStep {
+  run(navigationInstruction, next) {
+    if (navigationInstruction.getAllInstructions().some(i => i.config.settings.auth)) {
+      const isLoggedIn = authService.isAuthenticated();
+      if (!isLoggedIn) {
+        return next.cancel(new Redirect(PLATFORM.moduleName('auth')));
+      }
+    }
+
+    return next();
   }
 }

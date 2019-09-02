@@ -64,11 +64,95 @@ $primaryColor: cadetblue;
 
       }
 
-
-
-
-
       .todoBox {
+        .img-menu {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          &.cadet {
+            align-items: center;
+            background-color: cadetblue;
+            border-radius: 5px;
+          }
+
+          button.assignbtn{
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            background-color: cadetblue;
+
+            outline: none;
+
+            font-size: 25px;
+            color: white;
+
+          }
+
+          img {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            //margin-left: -20px;
+          }
+
+          img.dropbtn {
+            background-color: transparent;
+            color: white;
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 20px;
+            width: 20px;
+            //margin: 0 -20px 0 -20px;
+          }
+
+          img.dropbtn2 {
+            background-color: transparent;
+            color: white;
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 17px;
+            width: 17px;
+            //margin: 0 -20px 0 -20px;
+          }
+
+
+          dropdown {
+            right: 20px;
+            //position: fixed;
+            //align-content: right;
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+          }
+
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+          }
+
+          .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+          }
+
+          .dropdown-content a:hover {
+            //background-color: #ddd;
+            cursor: pointer;
+          }
+
+          .dropdown:hover .dropdown-content {
+            display: block;
+          }
+        }
 
 
         box-sizing: border-box;
@@ -112,6 +196,21 @@ $primaryColor: cadetblue;
           background-color: cadetblue;
         }
 
+        .titleEdit {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: center;
+          text-align: center;
+          border: none;
+          background-color: transparent;
+          border-bottom: 1px solid #fff;
+          font-size: 17px;
+          color: white;
+          outline: none;
+
+        }
+
 
         .allTasksContainer {
 
@@ -136,7 +235,7 @@ $primaryColor: cadetblue;
 
           task-add-btn {
             .form-group {
-              
+
               .inputtaskform {
                 display: flex;
                 justify-content: space-between;
@@ -148,11 +247,11 @@ $primaryColor: cadetblue;
                   cursor: pointer;
                   flex-grow: 1;
                 }
-  
+
                 input[type=text]:focus {
                   outline: none;
                 }
-  
+
                 input[type=submit] {
                   font-size: 25px;
                   border-radius: 50%;
@@ -166,15 +265,15 @@ $primaryColor: cadetblue;
                   text-decoration: none;
                   cursor: pointer;
                 }
-  
+
                 input[type=submit]:focus {
                   outline: none;
                 }
-  
-  
+
+
                 .inputItem {
                   align-self: center;
-                }  
+                }
               }
             }
 
@@ -201,7 +300,18 @@ $primaryColor: cadetblue;
 
           .taskContainer {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+
+            input[type=text] {
+              box-sizing: border-box;
+              margin-top: 10px; 
+              width: 100%;
+              height: 30px;
+              padding: 10px;
+              border: 1px solid cadetblue;
+              border-radius: 5px;
+            }
 
             &:hover {
               .taskItem {
@@ -213,6 +323,8 @@ $primaryColor: cadetblue;
 
             .taskItem {
               display: flex;
+              width: 100%;
+              justify-content: space-between;
               // align-self: center;
               align-items: center;
 
@@ -246,69 +358,38 @@ $primaryColor: cadetblue;
                 overflow: hidden;
               }
 
-              .img-menu {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-
-                img {
-                  border-radius: 50%;
-                  height: 40px;
-                  width: 40px;
-                  //margin-left: -20px;
-                }
-  
-                img.dropbtn {
-                  background-color: transparent;
-                  color: white;
-                  margin: 0;
-                  padding: 0;
+              form {
+                input[type=text] {
+                  margin-left: 5px;
+                  width: 120px;
                   border: none;
-                  height: 20px;
-                  width: 20px;
-                  //margin: 0 -20px 0 -20px;
-                }
-  
-                dropdown {
-                  right: 20px;
-                  //position: fixed;
-                  //align-content: right;
-                  display: inline-block;
-                  height: 10px;
-                  width: 10px;
-                }
-  
-                .dropdown-content {
-                  display: none;
-                  position: absolute;
-                  background-color: #f1f1f1;
-                  min-width: 160px;
-                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                  z-index: 1;
-                }
-  
-                .dropdown-content a {
-                  color: black;
-                  padding: 12px 16px;
-                  text-decoration: none;
-                  display: block;
-                }
-  
-                .dropdown-content a:hover {
-                  //background-color: #ddd;
-                  cursor: pointer;
-                }
-  
-                .dropdown:hover .dropdown-content {
-                  display: block;
-                }
-  
-                .dropdown:hover .dropbtn {
-                  //background-color: #1f7281;
+                  border-bottom: 1px solid #8c8b8b;
+                  font-size: 17px;
+
+                  &:focus {
+                    outline: none;
+                  }
                 }
               }
 
-              
+              .form-group.has-error {
+
+                input[type=text] {
+                  border-bottom: 1px solid red;
+                  margin-bottom: 3px;
+                }
+
+                span {
+                  // position: absolute;
+                  box-sizing: border-box;
+                  order: -1;
+                  color: red;
+                  font-size: 10px;
+                }
+              }
+
+
+
             }
           }
 
@@ -358,6 +439,13 @@ $primaryColor: cadetblue;
         font-size: 40px;
         text-decoration: none;
         order: 2;
+
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(35, 103, 105);
+          transition: 300ms all;
+        }
 
         &:focus {
           outline: none;

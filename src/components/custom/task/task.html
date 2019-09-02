@@ -2,29 +2,35 @@
   <div class="taskContainer">
 
     <div class="taskItem">
-      <input type="checkbox" checked.bind="task.done" change.delegate="updateTask($event.target.checked)">
-      <label>${task.description}</label>
-    </div>
-
-<!--    <div class="taskItem">-->
-<!--      <div class="deleteBtn">-->
-<!--        <img src="../../../assets/pictures/delete.svg" alt="deleteBtn" click.delegate="removeTask()">-->
-<!--      </div>-->
-<!--    </div>-->
-
-    <div class="taskItem">
+      <input type="checkbox" checked.bind="task.done" change.delegate="updateTaskDone($event.target.checked)">
+      <label show.bind="!onEditMode">${task.description}</label>
+      <div class="form-group">
+        <form show.bind="onEditMode" submit.trigger="updateTaskDesc()">
+          <input type="text" value.bind="editTaskDesc & validate" autofocus blur.trigger="updateTaskDesc()">
+        </form>
+      </div>
+      
+      
       <div class="img-menu">
-        <img src="../../../assets/pictures/img_avatar.png" alt="img_avatar1">
+        <button class="assignbtn" show.bind="task.assignee === null && !showInput" click.delegate="toggleInput()">+</button>
+        <button class="assignbtn" show.bind="showInput" click.delegate="updateTaskAssignee()">^</button>
+        <img show.bind="task.assignee !== null" src.bind="task.assigneePic" alt="img">
         <div class="dropdown">
           <img class="dropbtn" src="../../../assets/pictures/menu.png">
           <div class="dropdown-content">
-    <!--          <a repeat.for="board of boards" click.delegate="changeDisplayBoard(board.id)">${board.title}</a>-->
-            <a>Edit</a>
+            <a click.delegate="toggleEditMode('enter')">Edit</a>
             <a click.delegate="removeTask()">Delete</a>
           </div>
         </div>
       </div>
+      
     </div>
+    
+    <input list="users" name="users" if.bind="showInput" type="text" name="member" placeholder="Enter member here"
+      value.bind="assignee & validate">
+    <datalist id="users">
+      <option repeat.for="user of users">${user.name}</option>
+    </datalist>
 
   </div>
   <hr>

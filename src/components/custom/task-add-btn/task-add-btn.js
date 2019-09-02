@@ -18,9 +18,7 @@ export class TaskAddBtn {
 
     constructor(controllerFactory, httpClient) {
       this.httpClient = httpClient;
-      console.log(controllerFactory);
       this.controller = controllerFactory.createForCurrentScope();
-      console.log(this.controller);
       this.controller.addRenderer(new BootstrapFormRenderer());
     }
 

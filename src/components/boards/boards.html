@@ -8,7 +8,7 @@
           <div class="boardBox2">
 
 
-            <board repeat.for="board of boards" board.bind="board"></board>
+            <board repeat.for="board of boards" board.bind="board" refreshboards.call="getBoards()"></board>
 
             <button class="finalButton" if.bind="show" click.delegate="toggle()">+</button>
 
@@ -23,10 +23,10 @@
                         value.bind="newBoardTitle & validate">
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <input type="text" name="board" placeholder="Enter board owner here"
                         value.bind="newBoardOwner & validate">
-                    </div>
+                    </div> -->
 
                     <input type="submit"></button>
                   </form>

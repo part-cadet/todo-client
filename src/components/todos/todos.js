@@ -29,8 +29,10 @@ export class Todos {
   }
 
   activate(params, routeConfig, navigationInstruction) {
-    if (params.boardID == null) {
-      console.log('not redirected')
+    console.log('activate');
+    console.log(params.boardID);
+    if (typeof params.boardID === 'undefined') {
+      console.log('not redirected');
       this.notRedirected = true;
     } else {
       this.displayBoardID = params.boardID;
@@ -44,10 +46,10 @@ export class Todos {
       .then(data => {
         this.boards = data.map(element => Object.assign(new InfoBoardModel(), element));
         if (this.notRedirected) {
-          console.log('not redirected')
+          console.log('not redirected');
           this.displayBoardID = this.boards[0].id;
         }
-        const displayBoard = this.boards.find(element => element.id === parseInt(this.displayBoardID, 10) )
+        const displayBoard = this.boards.find(element => element.id === parseInt(this.displayBoardID, 10) );
         this.displayBoardTitle = displayBoard.title;
         this.getTodoBoards();
       });
@@ -66,7 +68,7 @@ export class Todos {
   changeDisplayBoard(boardID) {
     this.router.navigate(`/todos?boardID=${boardID}`);
     this.displayBoardID = boardID;
-    const displayBoard = this.boards.find(element => element.id === parseInt(this.displayBoardID, 10) )
+    const displayBoard = this.boards.find(element => element.id === parseInt(this.displayBoardID, 10) );
     this.displayBoardTitle = displayBoard.title;
     this.getTodoBoards();
   }

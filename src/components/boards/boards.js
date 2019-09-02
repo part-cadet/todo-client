@@ -38,18 +38,14 @@ export class Boards {
           this.httpClient.fetch('boards', {
             method: 'POST',
             body: json({
-              title: this.newBoardTitle,
-              owner_name: this.newBoardOwner
+              title: this.newBoardTitle
             })
           })
             .then(response => response.json())
             .then(data => {
               console.log(data); this.getBoards();
             });
-
-          // this.boards.push(new Board(this.newBoardTitle, this.newBoardOwner, []));
           this.newBoardTitle = '';
-          this.newBoardOwner = '';
           this.toggle();
         } else {
           console.log(result);
@@ -65,10 +61,6 @@ export class Boards {
 ValidationRules
   .ensure('newBoardTitle')
   .displayName('Board title')
-  .required()
-  .withMessage('\${$displayName} can\'t be blank.')
-  .ensure('newBoardOwner')
-  .displayName('Boards owner name')
   .required()
   .withMessage('\${$displayName} can\'t be blank.')
   .on(Boards);

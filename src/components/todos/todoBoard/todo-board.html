@@ -3,10 +3,28 @@
   <require from="../../custom/task-add-btn/task-add-btn"></require>
 
   <div class="todoBox">
+      <div class="img-menu cadet">
+          <div class="title">
+              <p show.bind="!onEditMode">${todoboard.title}</p>
+            </div>
+            <div class="form-group">
+                <form show.bind="onEditMode" submit.trigger="updateTodoBoardTitle()">
+                  <input class="titleEdit" type="text" value.bind="editTodoBoardTitle & validate" autofocus blur.trigger="updateTodoBoardTitle()">
+                </form>
+              </div>
+         
+          <div class="dropdown">
+            <img class="dropbtn2" src="../../../assets/pictures/menu2.png">
+            <div class="dropdown-content">
+              <a click.delegate="toggleEditMode('enter')">Edit</a>
+              <a click.delegate="removeTask()">Delete</a>
+            </div>
+          </div>
 
-    <div class="title">
-      <p>${todoboard.title}</p>
-    </div>
+          
+        </div>
+
+   
 
     <div class="allTasksContainer">
 

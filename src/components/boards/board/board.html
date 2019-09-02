@@ -1,24 +1,36 @@
 <template>
   <!-- <require from="./member/member"></require> -->
   <require from="../../custom/board-add-member-btn/add-member-btn"></require>
+  <require from="../../custom/board-member/board-member"></require>
 
   <div class="boards">
     <div class="boardsOwnerAndName ">
-      <div class="numberOfBoard">${board.title}</div>
+      <div class="numberOfBoard" show.bind="!onEditMode">${board.title}</div>
+      <input type="text" show.bind="onEditMode" value.bind="editTitle">
       <div class="listOwner">
         <h6>Owner</h6>
         <ul>
           <li>${board.owner}</li>
+          <!-- <li show.bind="onEditMode">
+            <input type="text" value.bind="editOwner">
+          </li> -->
         </ul>
+      </div>
+      <div class="tools">
+        <img class="delete" click.delegate="removeBoard()" src="../../../assets/pictures/cross.png">
+        <img class="edit" src="../../../assets/pictures/edit.png" show.bind="!onEditMode" click.delegate="toggleEditMode('enter')">
+        <img class="edit" src="../../../assets/pictures/check.png" show.bind="onEditMode" click.delegate="updateBoard()">
       </div>
     </div>
 
     <div class="innerBoard">
       <div class="membersOfBoard">
         <div class="headOfMember">Members</div>
-        <ul>
-          <li repeat.for="member of board.members" board.bind="member">${member}</li>
-        </ul>
+        <!-- <!-- <ul> -->
+          <div class="members">
+            <board-member repeat.for="member of board.members" member.bind="member" board.bind="board" refreshmembers.call="getMembers()"></board-member>
+          </div>
+        <!-- </ul> -->
       </div>
 
       <add-member-btn members.bind="board.members" boardid.bind="board.id" refreshmembers.call="getMembers()"></add-member-btn>
