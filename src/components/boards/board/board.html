@@ -10,10 +10,10 @@
       <div class="listOwner">
         <h6>Owner</h6>
         <ul>
-          <li show.bind="!onEditMode">${board.owner}</li>
-          <li show.bind="onEditMode">
+          <li>${board.owner}</li>
+          <!-- <li show.bind="onEditMode">
             <input type="text" value.bind="editOwner">
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="tools">

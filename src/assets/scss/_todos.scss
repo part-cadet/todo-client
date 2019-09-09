@@ -440,6 +440,13 @@ $primaryColor: cadetblue;
         text-decoration: none;
         order: 2;
 
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(35, 103, 105);
+          transition: 300ms all;
+        }
+
         &:focus {
           outline: none;
         }

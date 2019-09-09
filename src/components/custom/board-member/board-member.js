@@ -19,7 +19,11 @@ export class BoardMember {
     })
       .then(response => response.json())
       .then(data => {
-        this.refreshmembers();
+        if (data.status === 'Access Denied') {
+          toastr.error(data.message);
+        } else {
+          this.refreshmembers();
+        }
       });
   }
 }

@@ -96,8 +96,8 @@ export class Task {
         console.log(data);
         if (data.status === 'Ok') {
           this.refreshtodoboard();
-        } else if (data.detail.includes('not present in table')) {
-          toastr.error('Member does not exist in the database');
+        } else if (data.status === 'Invalid Member') {
+          toastr.error(data.message);
         }
         this.showInput = false;
       });
